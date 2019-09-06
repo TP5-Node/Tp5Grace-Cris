@@ -1,0 +1,14 @@
+{
+  "name": "tp5node",
+  "version": "1.0.0",
+  "description": "Tp5 Node con express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristina",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
