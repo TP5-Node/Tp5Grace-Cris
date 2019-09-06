@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link type="text/css" rel="stylesheet" href="styles/styles.css"> 
     <title>TPNode</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="column-addNewEmpBtn">
                         <a onclick="" href="#" class="button" data-taggle="">
-                            <i class="material-icons"></i>
+                            <i class="material-icons"></i>
                             <span>Add New Employee</span>   
                         </a>
                     </div>
@@ -56,7 +56,7 @@
             </table>
         </div>
     </div>
-    <div id="addEmployeeModal">
+    <div id="addEmployeeModal" class="modal fade" style="display:none">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form action="">
@@ -90,7 +90,7 @@
             </div>
         </div>
     </div>
-    <div id="editEmployeeModal" class="modal fade">
+    <div id="editEmployeeModal" class="modal fade" style="display:none">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form action="">
@@ -125,7 +125,7 @@
             </div>
         </div>
     </div>
-    <div id="deleteEmployeeModal" class="modal fade">
+    <div id="deleteEmployeeModal" class="modal fade" style="display:none">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form action="">
