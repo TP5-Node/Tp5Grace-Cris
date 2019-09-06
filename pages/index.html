@@ -1,153 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link type="text/css" rel="stylesheet" href="styles/styles.css"> 
-    <title>TPNode</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
+
 <body>
-    <div id="container">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="column-title">
-                        <h2>
-                            "Manage "
-                            <b>Employees</b>
-                        </h2>
-                    </div>
-                    <div class="column-addNewEmpBtn">
-                        <a onclick="" href="#" class="button" data-taggle="">
-                            <i class="material-icons"></i>
-                            <span>Add New Employee</span>   
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column-filter">
-                    <div class="form-group">
-                        <label for=""></label>
-                        <input type="text" placeholder="Filter..." id="search" class="form-control" required>
-                    </div>
-                </div>
-            </div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            <span class="custome-checkbox">
-                                <input type="checkbox" name="" id="selectAll">
-                                <label for="" id="selectAll"></label>
-                            </span>
-                        </th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-    </div>
-    <div id="addEmployeeModal" class="modal fade" style="display:none">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Add Employee</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="">Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                                <label for="">Email</label>
-                                <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                                <label for="">Address</label>
-                                <textarea id="address" class="form-control" required></textarea>
-                        </div>
-                        <div class="form-group">
-                                <label for="">Phone</label>
-                                <input type="text" id="phone" class="form-control" onkeydown="validateNumber(event);" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-success" value="Add">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div id="editEmployeeModal" class="modal fade" style="display:none">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Edit Employee</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                    </div>
-                    <div class="modal-body">
-                        <input id="userid" type="hidden" class="form-control" required>
-                        <div class="form-group">
-                            <label for="">Name</label>
-                            <input type="text" class="form-control" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Address</label>
-                            <textarea class="form-control" id="address" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Phone</label>
-                            <input id="phone" type="text" class="form-control" onkeydown="validateNumber(event);" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-info" value="Save">
-                    </div>
-                </form>
-            </div>
+    <div id="main">
+        <header>
+            <h1>Manage Employees</h1>
+            <button type="submit">Add New Employee</button>
+        </header>
+        <div>
+            <input type="text" placeholder="Filter...." id="filter">
+            <section>
+                <ul class="titles">
+                    <input type="checkbox">
+                    <li>Name</li>
+                    <li>Email</li>
+                    <li>Address</li>
+                    <li>Phone</li>
+                    <li>Actions</li>
+                </ul>
+                <ul class="dataEmployeesList">
+                    <input type="checkbox">
+                    <li>grace</li>
+                    <li>mcnsdfnb@hitna.com</li>
+                    <li>aslflav 2344 </li>
+                    <li>08096</li>
+                    <li><i class="material-icons" title="Delete">&#xE872;</i>
+                        <i class="material-icons" title="Edit">&#xE254;</i>
+                    </li>
+        <!-- datos creados con JS -->
+                </ul>
+            </section>
         </div>
     </div>
-    <div id="deleteEmployeeModal" class="modal fade" style="display:none">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="">
-                    <input id="userid" type="hidden" class="form-control">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Delete Employee</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to delete these Records?</p>
-                        <p class="text-warning">
-                            <small>This action connot be undone.</small>
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-danger" value="Delete">
-                    </div>
-                </form>
-            </div>
+    <div id="modal" style="display:none">    
         </div>
     </div>
-    
+    <div id="editEmployeeModal" style="display:none">
+        
+    </div>
+    <div id="deleteEmployeeModal" class="modal fade" style="display:none">
+        
+    
+        </div>
+    </div>
 </body>
+
 </html>
