@@ -4,7 +4,7 @@ const server = express();
 const port = 3000;
 
 server.use(router);
-server.use(express.static('public'))
+server.use('/statics', express.static('public'))
 
 
 server.listen(port, ()=>{
