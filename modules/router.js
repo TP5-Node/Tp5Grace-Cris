@@ -1,21 +1,22 @@
 const express = require('express');
 const path = require('path')
+
+const users = require('./users')
 const router = express.Router();
 
+//PAGES ROUTES//
 router.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, '../pages/index.html'))
 })
 
-router.get('/main.js', (req,res)=>{
-    res.sendFile(path.join(__dirname, '../pages/main.js'))
-})
+//API ROUTES//
+router.get('/api/users', users)
 
-router.get('/api/users', (req,res)=>{
-    res.json({user: [
-        {name: 'calixta', email: 'calixta@com'},
-        {name: 'calixta', email: 'calixta@com'},
-        {name: 'calixta', email: 'calixta@com'}
-    ]})
-})
+//NOT FOUNS HANDLER//
+router.use((req, res) =>{
+    res.status(404).send('Ojo que te mandaste un mocazo');
+});
 
-module.exports = router
+
+
+module.exports = router;
