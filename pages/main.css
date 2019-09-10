@@ -15,12 +15,11 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: 'Varela Round', sans-serif;;
-  vertical-align: baseline; 
-}
+  font-family: 'Varela Round', sans-serif;
+  vertical-align: baseline; }
 
-.content-table{
-    border-collapse: collapse;
-    margin: 25px 0;
-    
-}
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0; }
+
+/*# sourceMappingURL=main.css.map */
