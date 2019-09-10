@@ -5,22 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="statis/js/main2.js"></script>
+                <!--en inspector da un error no encuentra el archivo-->
+    <script src="statics/js/main2.js"></script>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
-    <link rel="stylesheet" href="statics/style/main.css">
+                    <!--en inspector da un error no encuentra el archivo  de estilos-->
+    <link rel="stylesheet" href="statics/styles/main.css">
     <title>Manage Employees</title>
 </head>
 
 <body>
-    <div id="main">
+    <div id="main" class="main">
         <header>
             <h1>Manage Employees</h1>
-            <button type="submit" onclick="">Add New Employee</button>
+            <!--el siguiente on click es para abrir el modal ? -->
+            <button type="submit" onclick="showModal()">Add New Employee</button>
         </header>
         <div>
             <input type="text" placeholder="Filter...." id="filter">
-            <table class="conteb=nt-table">
+            <table class="content-table">
                 <thead>
                         <tr class="titles">
                             <th><input type="checkbox"></th> 
@@ -43,11 +47,22 @@
                                     </td>
                         <!-- datos creados con JS -->
                                 </tr>
+                                <tr class="dataEmployeesList">
+                                        <td><input type="checkbox"></td>
+                                        <td>memo</td>
+                                        <td>mcnsdfnb@hitna.com</td>
+                                        <td>aslflav 2344 </td>
+                                        <td>08096</td>
+                                        <td><i class="material-icons" title="Delete">&#xE872;</i>
+                                            <i class="material-icons" title="Edit">&#xE254;</i>
+                                        </td>
+                            <!-- datos creados con JS -->
+                                    </tr>
                     </tbody>
             </table>
         </div>
     </div>
-    <div id="modal" style="display:block">   
+    <div id="modal" class="modal hide" style="display: none">   
         <form action="">
                 <label for="input-name">Name</label>
                 <input type="text" name="" id="input-name">
@@ -57,7 +72,8 @@
                 <textarea id="textarea-address"></textarea>
                 <label for="input-phone">Phone</label>
                 <input type="text" name="" id="input-phone">
-                <button type="submit" name="cancel">Cancel</button>
+                <!--el siguiente on click es para cerrar el modal ? -->
+                <button type="submit" name="cancel" onclick="closeModal()">Cancel</button>
                 <button type="submit" name="add">Add</button>
         </form> 
         </div>

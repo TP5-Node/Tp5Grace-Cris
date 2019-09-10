@@ -1,7 +1,7 @@
 const users = [
-    {name: 'calixta', email: 'calixta@com'},
-    {name: 'calixta', email: 'calixta@com'},
-    {name: 'calixta', email: 'calixta@com'}
+    {name: 'calixta', email: 'calixta@com', address: 'blablabla', phone: '08080808', actions: '' },
+    {name: 'calixta', email: 'calixta@com', address: 'blablabla', phone: '08080808', actions: '' },
+    {name: 'calixta', email: 'calixta@com', address: 'blablabla', phone: '08080808', actions: '' },
 ];
 
 const handler =  (req, res, next)=>{
