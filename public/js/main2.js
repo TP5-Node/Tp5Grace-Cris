@@ -13,4 +13,3 @@ const closeModal = () =>{
     let container = document.getElementsByClassName('modal')
     container.classList.replace('show', 'hide')
 }
-
