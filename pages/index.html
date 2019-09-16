@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                <!--en inspector da un error no encuentra el archivo-->
     <script src="statics/js/main2.js"></script>
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
                     <!--en inspector da un error no encuentra el archivo  de estilos-->
@@ -20,7 +18,7 @@
         <header>
             <h1>Manage Employees</h1>
             <!--el siguiente on click es para abrir el modal ? -->
-            <button type="submit" onclick="showModal()">Add New Employee</button>
+            <button type="submit" onclick="showModal()" id="showModal" >Add New Employee</button>
         </header>
         <div>
             <input type="text" placeholder="Filter...." id="filter">
@@ -62,7 +60,7 @@
             </table>
         </div>
     </div>
-    <div id="modal" class="modal hide" >
+    <div id="modal" class="hide" >
         <div class="modalContent">
             <div class="header-modal">
                 <h1>Add Employees</h1>
