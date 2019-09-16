@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path')
 
-const employees = require('./api/employees')
+const employees = require('../api/employees')
 const router = express.Router();
 
 //PAGES ROUTES//
