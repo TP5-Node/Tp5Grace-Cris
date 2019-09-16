@@ -35,7 +35,7 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id=""> 
                             <tr class="dataEmployeesList">
                                     <td><input type="checkbox"></td>
                                     <td>grace</td>
@@ -62,22 +62,32 @@
             </table>
         </div>
     </div>
-    <div id="modal" class="modal hide" style="display: none">   
-        <form action="">
-                <label for="input-name">Name</label>
-                <input type="text" name="" id="input-name">
-                <label for="input-email">Email</label>
-                <input type="text" name="" id="input-email">
-                <label for="textarea-address">Address</label>
-                <textarea id="textarea-address"></textarea>
-                <label for="input-phone">Phone</label>
-                <input type="text" name="" id="input-phone">
-                <!--el siguiente on click es para cerrar el modal ? -->
-                <button type="submit" name="cancel" onclick="closeModal()">Cancel</button>
-                <button type="submit" name="add">Add</button>
-        </form> 
+    <div id="modal" class="modal hide" >
+        <div class="modalContent">
+            <div class="header-modal">
+                <h1>Add Employees</h1>
+                <span class="closeBtn">&times;</span>
+            </div>
+            <div class="body-modal">
+                    <form action="">
+                        <label for="input-name">Name</label>
+                        <input type="text" name="" id="input-name">
+                        <label for="input-email">Email</label>
+                        <input type="text" name="" id="input-email">
+                        <label for="textarea-address">Address</label>
+                        <textarea id="textarea-address"></textarea>
+                        <label for="input-phone">Phone</label>
+                        <input type="text" name="" id="input-phone">
+                        <!--el siguiente on click es para cerrar el modal ? -->
+                    </form>
+            </div>
+            <div class="btn-container-foooter">
+                    <button type="submit" name="cancel" onclick="closeModal()">Cancel</button>
+                    <button type="submit" name="add" onclick="">Add</button>
+                </div>
         </div>
     </div>
+    
     <div id="editEmployeeModal" style="display:none">
             <form action="">
 
@@ -87,7 +97,6 @@
             <form action="">
 
             </form> 
-        </div>
     </div>
 </body>
 
