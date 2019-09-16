@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="statis/js/main2.js"></script>
+    <script src="statics/js/main2.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
     <link rel="stylesheet" href="statics/styles/main.css">
@@ -16,7 +16,7 @@
     <div id="main">
         <header>
             <h1>Manage Employees</h1>
-            <button type="submit">Add New Employee</button>
+            <a href="#" onclick="showModal()" id="showModal" >Add New Employee</a>
         </header>
         <div>
             <input type="text" placeholder="Filter...." id="filter">
@@ -30,21 +30,24 @@
                     <li>Actions</li>
                 </ul>
                 <ul class="umployees">
-                    <input type="checkbox">
-                    <li>grace</li>
-                    <li>mcnsdfnb@hitna.com</li>
-                    <li>aslflav 2344 </li>
-                    <li>08096</li>
-                    <li><i class="material-icons" title="Delete">&#xE872;</i>
-                        <i class="material-icons" title="Edit">&#xE254;</i>
-                    </li>
+                    <!-- <i class="material-icons" title="Delete">&#xE872;</i>
+                    <i class="material-icons" title="Edit">&#xE254;</i> -->
+                    
         <!-- datos creados con JS -->
                 </ul>
             </section>
         </div>
     </div>
-    <div id="modal" style="display:none">    
-        </div>
+    <div class="hide" id="modal">
+        <h3>Name</h3>
+        <input type="text" class="name">
+        <h3>Email</h3>
+        <input type="text" class="email">
+        <h3>Addres</h3>
+        <input type="text" class="address">
+        <h3>Phone</h3>
+        <input type="text" class="phone">
+    </div>
     </div>
     <div id="editEmployeeModal" style="display:none">
         

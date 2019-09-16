@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path')
 
-const users = require('./users')
+const employees = require('./api/employees')
 const router = express.Router();
 
 //PAGES ROUTES//
@@ -10,13 +10,13 @@ router.get('/', (req,res) =>{
 })
 
 //API ROUTES//
-router.get('/api/users', users)
+router.get('/api/employees', employees.getEmplo)
+router.get('/api/employees/:id', employees.getEmploById)
+router.post('/api/employees', employees.postEmplo)
 
 //NOT FOUNS HANDLER//
 router.use((req, res) =>{
     res.status(404).send('Ojo que te mandaste un mocazo');
 });
-
-
 
 module.exports = router;
