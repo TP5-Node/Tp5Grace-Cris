@@ -1,21 +1,14 @@
 const showModal = () =>{
         let container = document.getElementById("modal")
         container.classList.toggle('hide')
-        console.log(container)
+        
     }
-
-
-
-
 
 // FUNCION PARA OBTENER LOS CAMPOS DEL INPUT
 const loadedInfo = (dataPlace, info) =>{
     const loadedData = document.getElementsByClassName(dataPlace)
     loadedData.value = info
 }
-
-
-
 
 
 const sendData = () =>{
@@ -36,28 +29,8 @@ const sendData = () =>{
     }
 }
 
-
-var sendTask = function(){
-    event.preventDefault();
-    task = document.getElementById('commentInput');
-    newTask = task.value;
-
-    if(newTask !== ""){
-    task.value = "";
-    allTask.unshift({
-        text:newTask,
-        pending:true
-    })
-    
-    printTask()
-    }
-}
-
-
-
-
 const closeModal = () =>{
     let container = document.getElementsByClassName('modal')
-    container.classList.replace('show', 'hide')
+    container.classList.toggle('show')
 }
 
