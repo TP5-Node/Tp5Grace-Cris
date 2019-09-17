@@ -33,4 +33,3 @@ const closeModal = () =>{
     let container = document.getElementsByClassName('modal')
     container.classList.toggle('show')
 }
-
