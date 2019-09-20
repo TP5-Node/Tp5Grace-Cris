@@ -1,8 +1,11 @@
 const showModal = () =>{
-        let container = document.getElementById("modal")
-        container.classList.toggle('hide')
-        
+    let container = document.getElementById("CRISTINA")
+    console.log(container)
+    //container.classList.toggle('hide')
     }
+
+
+ 
 
 // FUNCION PARA OBTENER LOS CAMPOS DEL INPUT
 const loadedInfo = (dataPlace, info) =>{

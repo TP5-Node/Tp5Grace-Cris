@@ -1,0 +1,117 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Varela Round", sans-serif;
+  vertical-align: baseline;
+}
+
+body {
+  background-color: red;
+  background-image: url("./public/images/backnode.jpg");
+  background-size: cover;
+}
+body .main {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body .main div .content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+}
+body .main div .content-table thead tr {
+  background-color: #9b6bbb;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #9b6bbb;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modalContent {
+  width: 500px;
+  height: 350px;
+  background-color: white;
+  position: relative;
+}
+.modal .modalContent .header-modal {
+  background: salmon;
+}
+.modal .modalContent .body-modal form input {
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+}
+.modal .modalContent .body-modal form label {
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+}
+.modal .modalContent .body-modal form textarea {
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+}
+.modal .modalContent .body-modal .btn-container-foooter {
+  width: 100%;
+  background: salmon;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 25px;
+}
+
+/*# sourceMappingURL=styles.css.map */
