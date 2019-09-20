@@ -1,9 +1,8 @@
 const showModal = () =>{
     let container = document.getElementById("modal")
     container.classList.toggle('hide')
-    console.log(container)
+    
 }
-
 
 
 
