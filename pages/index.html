@@ -6,83 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="statics/js/main2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Josefin+Sans&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
-                    <!--en inspector da un error no encuentra el archivo  de estilos-->
+    
     <link rel="stylesheet" href="statics/styles/main.css">
-    <title>Manage Employees</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/shaki.ico" type="image/x-icon">
+    <title>Start to code</title>
 </head>
 
 <body>
     <div id="main" class="main">
         <header>
-            <h1>Manage Employees</h1>
-            <!--el siguiente on click es para abrir el modal ? -->
-            <a href="#" onclick="showModal()" id="showModal" >Add New Employee</a>  
+            <h1>Star to Code</h1>
         </header>
-        <div>
+        <div class="addData">
+            <a href="#" onclick="showModal()" id="showModal">Add Info</a>
             <input type="text" placeholder="Filter...." id="filter">
-            <table class="content-table">
-                <thead>
-                        <tr class="titles">
-                            <th><input type="checkbox"></th> 
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Phone</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id=""> 
-                            <tr class="dataEmployeesList">
-                                    <td><input type="checkbox"></td>
-                                    <td>grace</td>
-                                    <td>mcnsdfnb@hitna.com</td>
-                                    <td>aslflav 2344 </td>
-                                    <td>08096</td>
-                                    <td><i class="material-icons" title="Delete">&#xE872;</i>
-                                        <i class="material-icons" title="Edit">&#xE254;</i>
-                                    </td>
-                        <!-- datos creados con JS -->
-                                </tr>
-                                <tr class="dataEmployeesList">
-                                        <td><input type="checkbox"></td>
-                                        <td>memo</td>
-                                        <td>mcnsdfnb@hitna.com</td>
-                                        <td>aslflav 2344 </td>
-                                        <td>08096</td>
-                                        <td><i class="material-icons" title="Delete">&#xE872;</i>
-                                            <i class="material-icons" title="Edit">&#xE254;</i>
-                                        </td>
-                            <!-- datos creados con JS -->
-                                    </tr>
-                    </tbody>
-            </table>
+        </div>
+        <div class="tableData">
+            <ul class="titles">
+                <li>Name</li>
+                <li>Modality</li>
+                <li>Price</li>
+                <li>Web</li>
+                <li>Actions</li>
+            </ul>
+            <ul class="ulData">
+                <li>Name</li>
+                <li>Modality</li>
+                <li>Price</li>
+                <li>Web</li>
+                <li>Actions</li>
+            </ul>
         </div>
     </div>
-    <div id="modal" class="hide" >
-        <div class="modalContent">
-            <div class="header-modal">
-                <h1>Add Employees</h1>
-                <span class="closeBtn">&times;</span>
+    <!-- MODAL -->
+    <div id="backModal" class="backModal hide">
+        <div id="modal" class="modal" >
+            <div class="headMod">
+                <h2>Add  new resource</h2>
+                <span class="closeBtn" onclick="closeModal()">&times;</span>
             </div>
-            <div class="body-modal">
-                    <form action="">
-                        <label for="input-name">Name</label>
-                        <input type="text" name="" id="input-name">
-                        <label for="input-email">Email</label>
-                        <input type="text" name="" id="input-email">
-                        <label for="textarea-address">Address</label>
-                        <textarea id="textarea-address"></textarea>
-                        <label for="input-phone">Phone</label>
-                        <input type="text" name="" id="input-phone">
-                        <!--el siguiente on click es para cerrar el modal ? -->
-                    </form>
+            <form action="">
+                <label for="input-name">Name</label>
+                <input type="text" name="" id="input-name">
+                <label for="input-email">Modality</label>
+                <input type="text" name="" id="input-email">
+                <label for="textarea-address">Price</label>
+                <textarea id="textarea-address"></textarea>
+                <label for="input-phone">Web</label>
+                <input type="text" name="" id="input-phone">
+            </form>
+            <div class="close">
+                <a href="#" onclick="closeModal()">CANCEL</a>
+                <a href="#" onclick="">ADD</a>
             </div>
-            <div class="btn-container-foooter">
-                    <button type="submit" name="cancel" >Cancel</button>
-                    <button type="submit" name="add" onclick="">Add</button>
-                </div>
         </div>
     </div>
     

@@ -15,31 +15,26 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: 'Varela Round', sans-serif;;
-  vertical-align: baseline; 
+  font-family: "Varela Round", sans-serif;
+  vertical-align: baseline;
 }
 
-body{
-  background: #ffffff;
-
+body {
+  background-image: url("/public/images/backnode.jpg");
 }
-.main{
-  
+body .main {
   padding-left: 15px;
   padding-right: 15px;
-  margin-left:auto;
+  margin-left: auto;
   margin-right: auto;
 }
-
-.content-table{
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    min-width: 400px;
-  
+body .main div .content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
 }
-
-.content-table thead tr {
+body .main div .content-table thead tr {
   background-color: #9b6bbb;
   color: #ffffff;
   text-align: left;
@@ -53,10 +48,9 @@ body{
 
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
-
 }
 
-.content-table tbody tr:nth-of-type(even){
+.content-table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
 
@@ -67,11 +61,10 @@ body{
 .show {
   display: block;
 }
+
 .hide {
   display: none;
 }
-
-//modal
 
 .modal {
   width: 100%;
@@ -82,50 +75,41 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-
-.modalContent{
+.modal .modalContent {
   width: 500px;
   height: 350px;
   background-color: white;
-  //padding: 40px;
   position: relative;
-  
-  input {
-    width: 50%;
-    display: block;
-    margin: 15px auto;
 }
-
-label {
-  width: 50%;
-  display: block;
-  margin: 15px auto;
-}
-textarea {
-  width: 50%;
-  display: block;
-  margin: 15px auto;
-}
-
-
-} 
-
-.header-modal {
+.modal .modalContent .header-modal {
   background: salmon;
 }
-div .btn-container-foooter{
+.modal .modalContent .body-modal form input {
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+}
+.modal .modalContent .body-modal form label {
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+}
+.modal .modalContent .body-modal form textarea {
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+}
+.modal .modalContent .body-modal .btn-container-foooter {
   width: 100%;
   background: salmon;
 }
 
-
-
-.closeBtn{
+.closeBtn {
   position: absolute;
   top: 0;
   right: 14px;
   font-size: 25px;
 }
 
+/*# sourceMappingURL=main.css.map */
