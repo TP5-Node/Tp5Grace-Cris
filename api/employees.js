@@ -1,7 +1,7 @@
 const employees = [
-    {name: 'calixta', email: 'calixta@com'},
-    {name: 'calixta', email: 'calixta@com'},
-    {name: 'calixta', email: 'calixta@com'}
+    {id:'1', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org'},
+    {id:'2', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org'},
+    {id:'3', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org'}
 ];
 
 const getEmplo =  (req, res, next)=>{
@@ -11,14 +11,14 @@ const getEmplo =  (req, res, next)=>{
 
 const postEmplo = (req, res, next) =>{
     let data = req.body
-    if (data.hasOwnProperty('name') && data.hasOwnProperty('email')){
-    data.id = employees.length + 1;
+    if (data.hasOwnProperty('name') && data.hasOwnProperty('modality')){
+    data.id = employees.length + 1;//generacion de id mas segura
     employees.push(data);
     res.send(`Recibido con el id ${data.id}`);
     } else{
         res.status('404').send(`Fijate que la pifiaste mal Cris`);
     } 
-    next();   
+    next();    
 }
 
 const getEmploById = (req, res, next) =>{

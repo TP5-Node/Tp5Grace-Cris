@@ -16,7 +16,7 @@
     <title>Start to code</title>
 </head>
 
-<body>
+<body onload="initialize()">
     <div id="main" class="main">
         <header>
             <h1>Star to Code</h1>
@@ -26,19 +26,15 @@
             <input type="text" placeholder="Filter...." id="filter">
         </div>
         <div class="tableData">
-            <ul class="titles">
+            <ul class="titles"> 
                 <li>Name</li>
                 <li>Modality</li>
                 <li>Price</li>
                 <li>Web</li>
                 <li>Actions</li>
             </ul>
-            <ul class="ulData">
-                <li>Name</li>
-                <li>Modality</li>
-                <li>Price</li>
-                <li>Web</li>
-                <li>Actions</li>
+            <ul id="ulData" class="ulData">
+                   
             </ul>
         </div>
     </div>
@@ -61,7 +57,7 @@
             </form>
             <div class="close">
                 <a href="#" onclick="closeModal()">CANCEL</a>
-                <a href="#" onclick="">ADD</a>
+                <a href="#" onclick="createUser()">ADD</a>
             </div>
         </div>
     </div>

@@ -9,10 +9,14 @@ router.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, '../pages/index.html'))
 })
 
+
+
+
 //API ROUTES//
 router.get('/api/employees', employees.getEmplo)
 router.get('/api/employees/:id', employees.getEmploById)
 router.post('/api/employees', employees.postEmplo)
+///router.delete('/api/employees/:id', employees.getEmploById)
 
 //NOT FOUNS HANDLER//
 router.use((req, res) =>{
