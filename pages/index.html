@@ -43,11 +43,11 @@
         </div>
     </div>
     <!-- MODAL -->
-    <div class="backModal hide">
-        <div id="modal" class="modal" onclick="showModal()">
+    <div id="backModal" class="backModal hide">
+        <div id="modal" class="modal" >
             <div class="headMod">
                 <h2>Add  new resource</h2>
-                <span class="closeBtn">&times;</span>
+                <span class="closeBtn" onclick="closeModal()">&times;</span>
             </div>
             <form action="">
                 <label for="input-name">Name</label>
