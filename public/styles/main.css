@@ -161,5 +161,54 @@ body .main .tableData ul.ulData {
   border-radius: 8px;
   margin: 20px;
 }
+.backModal .deleteModal {
+  height: 500px;
+  margin: 30px auto;
+  width: 35%;
+  background-color: #B7CBF0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  z-index: 1;
+}
+.backModal .deleteModal .headMod h2 {
+  font-family: "Bree Serif", serif;
+  font-size: 30px;
+  margin: 20px 0 20px 20px;
+  float: left;
+  word-spacing: 5px;
+}
+.backModal .deleteModal .headMod .closeBtn {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 25px;
+  float: right;
+}
+.backModal .deleteModal h5 {
+  font-family: "Bree Serif", serif;
+  font-size: 16px;
+  margin-left: 20px;
+}
+.backModal .deleteModal img {
+  width: 220px;
+  height: 250px;
+  justify-content: center;
+  margin: auto;
+  border-radius: 25px;
+}
+.backModal .deleteModal .close a {
+  float: right;
+  font-family: "Bree Serif", serif;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 8px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  margin: 20px;
+}
 
 /*# sourceMappingURL=main.css.map */
