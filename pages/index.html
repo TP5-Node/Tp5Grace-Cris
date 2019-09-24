@@ -16,7 +16,7 @@
     <title>Start to code</title>
 </head>
 
-<body>
+<body onload="initialize()" >
     <div id="main" class="main">
         <header>
             <h1>Star to Code</h1>
@@ -30,15 +30,19 @@
                 <li>Name</li>
                 <li>Modality</li>
                 <li>Price</li>
-                <li>Web</li>
-                <li>Actions</li>
+                <li>Email</li>
+                <li>Edit</li>
+                <li>Delete</li>
             </ul>
             <ul class="ulData">
-                <li>Name</li>
-                <li>Modality</li>
-                <li>Price</li>
-                <li>Web</li>
-                <li>Actions</li>
+                <li>Ada</li>
+                <li>Presencial/Online</li>
+                <li>$80.000</li>
+                <li>contacto@adaitw.com.ar</li>
+                <li><a href="#"><i class="material-icons" title="Edit">&#xE254;</i></a></li>
+                <li><a href="#" id='deleteButton'><i class="material-icons" title="Delete">&#xE872;</i></a></li>
+                
+                
             </ul>
         </div>
     </div>
@@ -47,17 +51,17 @@
         <div id="modal" class="modal" >
             <div class="headMod">
                 <h2>Add  new resource</h2>
-                <span class="closeBtn" onclick="closeModal()">&times;</span>
+                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
             </div>
             <form action="">
                 <label for="input-name">Name</label>
-                <input type="text" name="" id="input-name">
+                <input type="text" id="input-name">
                 <label for="input-email">Modality</label>
-                <input type="text" name="" id="input-email">
-                <label for="textarea-address">Price</label>
-                <textarea id="textarea-address"></textarea>
-                <label for="input-phone">Web</label>
-                <input type="text" name="" id="input-phone">
+                <input type="text" id="input-modality">
+                <label for="input-price">Price</label>
+                <input type="text" id="input-price">
+                <label for="input-phone">Email</label>
+                <input type="text" id="input-email">
             </form>
             <div class="close">
                 <a href="#" onclick="closeModal()">CANCEL</a>
@@ -70,17 +74,17 @@
         <div id="editModal" class="modal" onclick="showModal()">
             <div class="headMod">
                 <h2>Edite resource</h2>
-                <span class="closeBtn">&times;</span>
+                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
             </div>
             <form action="">
                 <label for="input-name">Name</label>
-                <input type="text" name="" id="input-name">
+                <input type="text" id="input-name">
                 <label for="input-email">Modality</label>
-                <input type="text" name="" id="input-email">
-                <label for="textarea-address">Price</label>
-                <textarea id="textarea-address"></textarea>
-                <label for="input-phone">Web</label>
-                <input type="text" name="" id="input-phone">
+                <input type="text" id="input-modality">
+                <label for="input-price">Price</label>
+                <input type="text" id="input-price">
+                <label for="input-phone">Email</label>
+                <input type="text" id="input-email">
             </form>
             <div class="close">
                 <a href="#" onclick="closeModal()">CANCEL</a>
@@ -93,7 +97,7 @@
         <div id="deleteModal" class="deleteModal" onclick="showModal()">
             <div class="headMod">
                 <h2>Delete resource</h2>
-                <span class="closeBtn">&times;</span>
+                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
             </div>
             <h5>Are you sure you want to delete this record?</h5>
             <img src="../statics/images/eraser.jpg" alt="">

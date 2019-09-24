@@ -4,7 +4,6 @@ const showModal = () => {
     }
 
 
- 
 
     
 // FUNCION PARA OBTENER LOS CAMPOS DEL INPUT
@@ -35,4 +34,14 @@ if(phoneRegex.test(phone.value)){
 const closeModal = () =>{
     let container = document.getElementById('backModal')
     container.classList.toggle('hide')
+}
+
+
+// FUNCION PARA EDITAR
+
+//FUNCION PARA BORRAR
+const initialize = () =>{
+    let deleteButton = document.getElementById("deleteButton")
+    deleteButton
+
 }
