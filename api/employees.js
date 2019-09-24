@@ -9,6 +9,7 @@ const getEmplo =  (req, res, next)=>{
     next();
 }
 
+//post no funciona
 const postEmplo = (req, res, next) =>{
     let data = req.body
     if (data.hasOwnProperty('name') && data.hasOwnProperty('modality')){
@@ -30,6 +31,10 @@ const getEmploById = (req, res, next) =>{
     }
     next();    
 };
+
+//DELETE un pedido de borrar algo de la api
+
+//PATCH un pedido de borrar algo de la api
 
 
 

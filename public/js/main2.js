@@ -6,12 +6,25 @@ const initialize = async () => {
 };
 
 
+const getUsers = () => {
+    return fetch('/api/employees')
+    .then((res) => res.json());
+};
+
 const printEmployees = (data) => {
     const list = document.getElementById('ulData');
     list.innerHTML = '';
     data.forEach((e) => (list.innerHTML += userView(e)));
     
 };
+
+const userView = ({ id, name, modality, price, web }) => `
+    <li>${id}</li>
+    <li>${name}</li>
+    <li>${modality}</li>
+    <li>${price}</li>
+    <li>${web}</li>
+`;
 
 const createUser = () => {
 	event.preventDefault();
@@ -56,18 +69,8 @@ const isValid = (payload) => {
 	return true;
 };
 
-const getUsers = () => {
-    return fetch('/api/employees')
-    .then((res) => res.json());
-};
 
-const userView = ({ id, name, modality, price, web }) => `
-    <li>${id}</li>
-    <li>${name}</li>
-    <li>${modality}</li>
-    <li>${price}</li>
-    <li>${web}</li>
-`;
+
 
 
 const showModal = () => {
