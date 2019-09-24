@@ -1,7 +1,8 @@
 const employees = [
-    {id:'1', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org'},
-    {id:'2', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org'},
-    {id:'3', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org'}
+    {id:'1', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org', actions: '<i class="material-icons" title="Edit">&#xE254;</i><i class="material-icons" title="Delete">&#xE872;</i>'},
+    {id:'1', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org', actions: '<i class="material-icons" title="Edit">&#xE254;</i><i class="material-icons" title="Delete">&#xE872;</i>'},
+    {id:'1', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org', actions: '<i class="material-icons" title="Edit">&#xE254;</i><i class="material-icons" title="Delete">&#xE872;</i>'},
+
 ];
 
 const getEmplo =  (req, res, next)=>{

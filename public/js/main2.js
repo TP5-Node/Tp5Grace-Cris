@@ -18,12 +18,13 @@ const printEmployees = (data) => {
     
 };
 
-const userView = ({ id, name, modality, price, web }) => `
-    <li>${id}</li>
+const userView = ({ name, modality, price, web, actions }) => `
+    
     <li>${name}</li>
     <li>${modality}</li>
     <li>${price}</li>
     <li>${web}</li>
+    <li>${actions}</li>
 `;
 
 const createUser = () => {
