@@ -109,8 +109,10 @@ body{
           font-family: $backFont;
           list-style: none; 
         }
-        i{
-          margin-right: -25px;
+        &.ulData{
+          background-color: lightblue;
+          
+          
         }
       }
       
@@ -165,12 +167,21 @@ body{
           position: absolute;
           top: 0;
           right: 14px;
+<<<<<<< HEAD:pages/main.scss
           font-size: 35px;
           float: right;
           text-decoration: none;
           color: black;
         }
         }
+=======
+          font-size: 60px;
+          float: right;
+        
+        }
+
+      }
+>>>>>>> 6f51d4196cb75cc9a183032a53d9d66a41d130e3:public/styles/main.scss
       form{
         align-items: left;
         input{
