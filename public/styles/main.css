@@ -19,4 +19,221 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
+body {
+  background-image: url("../../statics/images/backnode2.jpg");
+  background-size: cover;
+  position: absolute;
+}
+body .main {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body .main header h1 {
+  margin: 30px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 130px;
+}
+@media (max-width: 1055px) {
+  body .main header h1 {
+    font-size: 110px;
+  }
+}
+@media (max-width: 880px) {
+  body .main header h1 {
+    font-size: 85px;
+  }
+}
+@media (max-width: 500px) {
+  body .main header h1 {
+    font-size: 50px;
+  }
+}
+body .main .addData {
+  width: 85vw;
+  margin: 20px 0;
+  line-height: 50px;
+  align-items: center;
+}
+body .main .addData a {
+  font-family: "Bree Serif", serif;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 25px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  margin: 20px;
+}
+body .main .addData input {
+  font-family: "Bree Serif", serif;
+  padding: 8px;
+  float: right;
+  font-size: 15px;
+  margin-right: 50px;
+  margin-top: 7px;
+}
+body .main .tableData {
+  width: 90%;
+  margin: 120px 0 120px 150px;
+}
+body .main .tableData ul {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 250px 0.5fr 0.5fr;
+  padding: 20px 20px 20px 0;
+  border-bottom: black solid 1px;
+  align-items: left;
+}
+body .main .tableData ul.ulData {
+  background-color: lightblue;
+}
+body .main .tableData ul.ulData li {
+  margin-right: 10px;
+}
+body .main .tableData ul.ulData li a i {
+  color: black;
+  margin-right: 10px;
+}
+body .main .tableData ul li {
+  margin-left: 70px;
+  font-family: "Bree Serif", serif;
+  list-style: none;
+}
+body .main .tableData ul i {
+  margin-right: -25px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.backModal {
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+}
+.backModal.show {
+  display: block;
+}
+.backModal.hide {
+  display: none;
+}
+.backModal .modal {
+  margin: 30px auto;
+  width: 28%;
+  height: 550px;
+  background-color: #B7CBF0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  z-index: 1;
+}
+.backModal .modal .headMod h2 {
+  font-family: "Bree Serif", serif;
+  font-size: 30px;
+  margin: 20px 0 20px 20px;
+  float: left;
+  word-spacing: 5px;
+}
+.backModal .modal .headMod .closeBtn {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 35px;
+  float: right;
+  text-decoration: none;
+  color: black;
+}
+.backModal .modal form {
+  align-items: left;
+}
+.backModal .modal form input {
+  width: 85%;
+  height: 30px;
+  display: block;
+  margin: 10px 15px;
+  padding-right: 20px;
+}
+.backModal .modal form label {
+  font-family: "Bree Serif", serif;
+  font-size: 18px;
+  width: 85%;
+  display: block;
+  margin: 15px 0 15px 25px;
+}
+.backModal .modal .close a {
+  float: right;
+  font-family: "Bree Serif", serif;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 8px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  margin: 20px;
+}
+.backModal .deleteModal {
+  height: 500px;
+  margin: 30px auto;
+  width: 35%;
+  background-color: #B7CBF0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  z-index: 1;
+}
+.backModal .deleteModal .headMod h2 {
+  font-family: "Bree Serif", serif;
+  font-size: 30px;
+  margin: 20px 0 20px 20px;
+  float: left;
+  word-spacing: 5px;
+}
+.backModal .deleteModal .headMod .closeBtn {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 25px;
+  float: right;
+  text-decoration: none;
+  color: black;
+}
+.backModal .deleteModal h5 {
+  font-family: "Bree Serif", serif;
+  font-size: 16px;
+  margin-left: 20px;
+}
+.backModal .deleteModal img {
+  width: 220px;
+  height: 250px;
+  justify-content: center;
+  margin: auto;
+  border-radius: 25px;
+}
+.backModal .deleteModal .close a {
+  float: right;
+  font-family: "Bree Serif", serif;
+  font-size: 35px;
+  text-decoration: none;
+  padding: 8px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  margin: 20px;
+}
+
 /*# sourceMappingURL=main.css.map */

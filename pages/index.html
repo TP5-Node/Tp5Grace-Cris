@@ -6,57 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="statics/js/main2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Josefin+Sans&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
+    
     <link rel="stylesheet" href="statics/styles/main.css">
-    <title>Manage Employees</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/shaki.ico" type="image/x-icon">
+    <title>Start to code</title>
 </head>
 
-<body>
-    <div id="main">
+<body onload="initialize()" >
+    <div id="main" class="main">
         <header>
-            <h1>Manage Employees</h1>
-            <a href="#" onclick="showModal()" id="showModal" >Add New Employee</a>
+            <h1>Star to Code</h1>
         </header>
-        <div>
+        <div class="addData">
+            <a href="#" onclick="showModal()" id="showModal">Add Info</a>
             <input type="text" placeholder="Filter...." id="filter">
-            <section>
-                <ul class="titles">
-                    <input type="checkbox">
-                    <li>Name</li>
-                    <li>Email</li>
-                    <li>Address</li>
-                    <li>Phone</li>
-                    <li>Actions</li>
-                </ul>
-                <ul class="umployees">
-                    <!-- <i class="material-icons" title="Delete">&#xE872;</i>
-                    <i class="material-icons" title="Edit">&#xE254;</i> -->
-                    
-        <!-- datos creados con JS -->
-                </ul>
-            </section>
+        </div>
+        <div class="tableData">
+            <ul class="titles">
+                <li>Name</li>
+                <li>Modality</li>
+                <li>Price</li>
+                <li>Email</li>
+                <li>Edit</li>
+                <li>Delete</li>
+            </ul>
+            <ul class="ulData">
+                <li>Ada</li>
+                <li>Presencial/Online</li>
+                <li>$80.000</li>
+                <li>contacto@adaitw.com.ar</li>
+                <li><a href="#"><i class="material-icons" title="Edit">&#xE254;</i></a></li>
+                <li><a href="#" id='deleteButton'><i class="material-icons" title="Delete">&#xE872;</i></a></li>
+                
+                
+            </ul>
         </div>
     </div>
-    <div class="hide" id="modal">
-        <h3>Name</h3>
-        <input type="text" class="name">
-        <h3>Email</h3>
-        <input type="text" class="email">
-        <h3>Addres</h3>
-        <input type="text" class="address">
-        <h3>Phone</h3>
-        <input type="text" class="phone">
+    <!-- MODAL -->
+    <div id="backModal" class="backModal hide">
+        <div id="modal" class="modal" >
+            <div class="headMod">
+                <h2>Add  new resource</h2>
+                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
+            </div>
+            <form action="">
+                <label for="input-name">Name</label>
+                <input type="text" id="input-name">
+                <label for="input-email">Modality</label>
+                <input type="text" id="input-modality">
+                <label for="input-price">Price</label>
+                <input type="text" id="input-price">
+                <label for="input-phone">Email</label>
+                <input type="text" id="input-email">
+            </form>
+            <div class="close">
+                <a href="#" onclick="closeModal()">CANCEL</a>
+                <a href="#" onclick="">ADD</a>
+            </div>
+        </div>
     </div>
+    <!-- EDIT MODAL -->
+    <div class="backModal hide" id="editEmployeeModal">
+        <div id="editModal" class="modal" onclick="showModal()">
+            <div class="headMod">
+                <h2>Edite resource</h2>
+                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
+            </div>
+            <form action="">
+                <label for="input-name">Name</label>
+                <input type="text" id="input-name">
+                <label for="input-email">Modality</label>
+                <input type="text" id="input-modality">
+                <label for="input-price">Price</label>
+                <input type="text" id="input-price">
+                <label for="input-phone">Email</label>
+                <input type="text" id="input-email">
+            </form>
+            <div class="close">
+                <a href="#" onclick="closeModal()">CANCEL</a>
+                <a href="#" onclick="">ADD</a>
+            </div>
+        </div>
     </div>
-    <div id="editEmployeeModal" style="display:none">
-        
+    <!-- DELETE ALERT -->
+    <div class="backModal hide" id="editEmployeeModal">
+        <div id="deleteModal" class="deleteModal" onclick="showModal()">
+            <div class="headMod">
+                <h2>Delete resource</h2>
+                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
+            </div>
+            <h5>Are you sure you want to delete this record?</h5>
+            <img src="../statics/images/eraser.jpg" alt="">
+            <div class="close">
+                <a href="#" onclick="closeModal()">CANCEL</a>
+                <a href="#" onclick="">SURE</a>
+            </div>
+        </div>
     </div>
-    <div id="deleteEmployeeModal" class="modal fade" style="display:none">
-        
     
-        </div>
-    </div>
 </body>
 
 </html>
