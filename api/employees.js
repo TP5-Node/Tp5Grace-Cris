@@ -1,7 +1,7 @@
 const employees = [
     {id:'1', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org', actions: '<i class="material-icons" title="Edit">&#xE254;</i><i class="material-icons" title="Delete">&#xE872;</i>'},
-    {id:'1', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org', actions: '<i class="material-icons" title="Edit">&#xE254;</i><i class="material-icons" title="Delete">&#xE872;</i>'},
-    {id:'1', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org', actions: '<i class="material-icons" title="Edit">&#xE254;</i><i class="material-icons" title="Delete">&#xE872;</i>'},
+    {id:'2', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org', actions: '<i class="material-icons" title="Edit">&#xE254;</i><i class="material-icons" title="Delete">&#xE872;</i>'},
+    {id:'3', name: 'CS50 Web Programming with Python and JavaScript', modality: 'online', price: '0', web: 'edx.org', actions: '<i class="material-icons" title="Edit">&#xE254;</i><i class="material-icons" title="Delete">&#xE872;</i>'},
 
 ];
 
@@ -10,7 +10,7 @@ const getEmplo =  (req, res, next)=>{
     next();
 }
 
-//post no funciona
+//post no funciona??? o es la funcion de Main2.js?
 const postEmplo = (req, res, next) =>{
     let data = req.body
     if (data.hasOwnProperty('name') && data.hasOwnProperty('modality')){

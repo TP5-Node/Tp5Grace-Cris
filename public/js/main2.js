@@ -8,7 +8,7 @@ const initialize = async () => {
 
 const getUsers = () => {
     return fetch('/api/employees')
-    .then((res) => res.json());
+    .then((res) => res.json());   
 };
 
 const printEmployees = (data) => {
@@ -28,41 +28,45 @@ const userView = ({ name, modality, price, web, actions }) => `
 `;
 
 const createUser = () => {
-	event.preventDefault();
-    const formId = document.getElementById('id');
-    const formName = document.getElementById('name');
-    const formModality = document.getElementById('modality');
-    const formPrice = document.getElementById('price');
-    const formWeb = document.getElementById('web');
-
-	const payload = {
-		id: formId.value,
-        name: formName.value,
-        modality: formModality.value,
-        price: formPrice.value,
-        web: formWeb.value
-	};
-
-	if (isValid(payload)) {
-		fetch('api/employees', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(payload)
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				console.log(res);
-				formId.value = '';
-				formName.value = '';
-				initialize();
-			})
-			.catch((error) => {
-				// acá van otras cositas
-			});
-	} else {
-	}
+    event.preventDefault();
+    const formName = document.getElementById('name');
+        const formModality = document.getElementById('modality');
+        const formPrice = document.getElementById('textarea-address');
+        const formWeb = document.getElementById('input-phone');
+    
+        const payload = {
+            name: formName.value,
+            modality: formModality.value,
+            price: formPrice.value,
+            web: formWeb.value
+        };
+    
+        if (isValid(payload)) {
+            fetch('api/employees', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then((res) => res.json())
+                .then((res) => {
+                    con(res);
+    
+                    formName.value = '';
+                    formModality.value = '';
+                    formPrice.value ='';
+                    formWeb.value ='';
+    
+                    initialize();
+                })
+                .catch((error) => {
+                    // acá van otras cositas
+                });
+        } else {
+        }
+    
+    
 };
 
 const isValid = (payload) => {
@@ -70,14 +74,7 @@ const isValid = (payload) => {
 	return true;
 };
 
-
-
-
-
-const showModal = () => {
-    let container = document.getElementById("backModal")
-    container.classList.toggle('hide')
-    }
+///FUNCION DE FILTER
 
 
     
@@ -106,6 +103,17 @@ if(phoneRegex.test(phone.value)){
     loadedInfo(phone, 'phone')
 }
 }
+
+
+
+
+
+
+const showModal = () => {
+    let container = document.getElementById("backModal")
+    container.classList.toggle('hide')
+    }
+
 
 const closeModal = () =>{
     let container = document.getElementById('backModal')
