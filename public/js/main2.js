@@ -174,7 +174,7 @@ const handleSearch = () => {
         
         return fetch('/api/resources/')
         .then((res) => res.json())
-        .then ((res) =>console.log(res.resources(query.id)));
+        .then ((res) =>console.log(res.resources));
 	}
 };
 
