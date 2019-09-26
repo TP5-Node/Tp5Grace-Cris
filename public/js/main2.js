@@ -120,3 +120,12 @@ const closeModal = () =>{
     container.classList.toggle('hide')
 }
 
+
+// FUNCION PARA EDITAR
+
+//FUNCION PARA BORRAR
+const initialize = () =>{
+    let deleteButton = document.getElementById("deleteButton")
+    deleteButton
+
+}
