@@ -62,28 +62,21 @@ body {
         margin-right: 50px;
         margin-top: 7px; }
     body .main .tableData {
-      width: 90%;
-      margin: 120px 0 120px 150px; }
-      body .main .tableData ul {
+      width: 100%;
+      margin: 50px; }
+      body .main .tableData .tableTitles {
         background-color: white;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 250px 0.5fr 0.5fr;
-        padding: 20px 20px 20px 0;
         border-bottom: black solid 1px;
         align-items: left; }
-        body .main .tableData ul.ulData {
-          background-color: lightblue; }
-          body .main .tableData ul.ulData li {
+        body .main .tableData .tableTitles th {
+          padding: 10px; }
+      body .main .tableData .tableContain {
+        background-color: lightblue; }
+        body .main .tableData .tableContain td {
+          margin-right: 10px; }
+          body .main .tableData .tableContain td a i {
+            color: black;
             margin-right: 10px; }
-            body .main .tableData ul.ulData li a i {
-              color: black;
-              margin-right: 10px; }
-        body .main .tableData ul li {
-          margin-left: 70px;
-          font-family: "Bree Serif", serif;
-          list-style: none; }
-        body .main .tableData ul.ulData {
-          background-color: lightblue; }
 
 .show {
   display: block; }

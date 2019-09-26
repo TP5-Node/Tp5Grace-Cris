@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path')
 
-const employees = require('../api/employees')
+const resources = require('../api/resources')
 const router = express.Router();
 
 //PAGES ROUTES//
@@ -10,9 +10,9 @@ router.get('/', (req,res) =>{
 })
 
 //API ROUTES//
-router.get('/api/employees', employees.getEmplo)
-router.get('/api/employees/:id', employees.getEmploById)
-router.post('/api/employees', employees.postEmplo)
+router.get('/api/resources', resources.getCourse)
+router.get('/api/resources/:id', resources.getCourseById)
+router.post('/api/resources', resources.postCourse)
 ///router.delete('/api/employees/:id', employees.getEmploById)
 
 //NOT FOUNS HANDLER//
