@@ -59,6 +59,8 @@ const createDelBtn = () =>{
     return btn
 }
 
+
+//FUNCIONES PARA MOSTRAR MODALES
 const showModal = () => {
     let container = document.getElementById("backModal")
     container.classList.toggle('hide')
@@ -75,9 +77,24 @@ const showDeleteModal = () => {
     }
 
 
+//FUNCIONES PARA CERRAR MODALES    
+const closeModal = () =>{
+    let container = document.getElementById('backModal')
+    container.classList.toggle('hide')
+}
+
+const closeEditModal = () =>{
+    let container = document.getElementById('editCourseModal')
+    container.classList.toggle('hide')
+}
+
+const closeDeleteModal = () =>{
+    let container = document.getElementById('deleteCourseModal')
+    container.classList.toggle('hide')
+}
 
 
-//HASTA ACA LLEGUE CON MALE
+//FUNCION PARA HACER EL POST
 
 
 const createUser = () => {
@@ -93,8 +110,6 @@ const createUser = () => {
         price: formPrice.value,
         email: formEmail.value
     }
-
-
 
     fetch('api/resources', {
         method: 'POST',
@@ -151,10 +166,7 @@ if(phoneRegex.test(phone.value)){
 }
 }
 
-const closeModal = () =>{
-    let container = document.getElementById('backModal')
-    container.classList.toggle('hide')
-}
+
 
 
 // FUNCION PARA EDITAR

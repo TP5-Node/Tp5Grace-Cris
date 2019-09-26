@@ -64,11 +64,11 @@
         </div>
     </div>
     <!-- EDIT MODAL -->
-    <div class="backModal hide" id="editCourseModal">
+    <div  id="editCourseModal" class="backModal hide">
         <div id="editModal" class="modal" >
             <div class="headMod">
                 <h2>Edite resource</h2>
-                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
+                <a href="#" class="closeBtn" onclick="closeEditModal()">&times;</a>
             </div>
             <form action="">
                 <label for="input-name">Name</label>
@@ -81,22 +81,22 @@
                 <input type="text" id="input-email">
             </form>
             <div class="close">
-                <a href="#" onclick="closeModal()">CANCEL</a>
+                <a href="#" onclick="closeEditModal()">CANCEL</a>
                 <a href="#" onclick="">ADD</a>
             </div>
         </div>
     </div>
     <!-- DELETE ALERT -->
-    <div class="backModal hide" id="editCourseModal">
+    <div class="backModal hide" id="deleteCourseModal">
         <div id="deleteModal" class="deleteModal" >
             <div class="headMod">
                 <h2>Delete resource</h2>
-                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
+                <a href="#" class="closeBtn" onclick="closeDeleteModal()">&times;</a>
             </div>
             <h5>Are you sure you want to delete this record?</h5>
             <img src="../statics/images/eraser.jpg" alt="">
             <div class="close">
-                <a href="#" onclick="closeModal()">CANCEL</a>
+                <a href="#" onclick="closeDeleteModal()">CANCEL</a>
                 <a href="#" onclick="">SURE</a>
             </div>
         </div>
