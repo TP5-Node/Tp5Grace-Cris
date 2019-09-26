@@ -82,44 +82,35 @@ body{
 
     }
     .tableData{
-      width: 90%;
-      margin: 120px 0 120px 150px;
-      ul{
+      width: 100%;
+      margin: 50px;
+      .tableTitles{
         background-color: white;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 250px 0.5fr 0.5fr;
-        padding: 20px 20px 20px 0;
         border-bottom: black solid 1px;
         align-items: left;
-        &.ulData{
-          background-color: lightblue;
-          li{
-            margin-right: 10px;
-              a{
-                i{
-                  color: black;
-                  margin-right: 10px;
-                }
-              }
+        th{
+          padding: 10px;
+        }
+      } 
+      .tableContain{
+        background-color: lightblue;
+        td{
+          margin-right: 10px;
+          a{
+            i{
+              color: black;
+              margin-right: 10px;
             }
           }
-        
-        li{
-          margin-left: 70px;
-          font-family: $backFont;
-          list-style: none; 
-        }
-        &.ulData{
-          background-color: lightblue;
-          
-          
+          }
         }
       }
-      
     }
+  
   }
-
-}
+      
+    
+        
 
 .show {
   display: block;
@@ -167,21 +158,12 @@ body{
           position: absolute;
           top: 0;
           right: 14px;
-<<<<<<< HEAD:pages/main.scss
-          font-size: 35px;
-          float: right;
-          text-decoration: none;
-          color: black;
-        }
-        }
-=======
           font-size: 60px;
           float: right;
         
         }
 
       }
->>>>>>> 6f51d4196cb75cc9a183032a53d9d66a41d130e3:public/styles/main.scss
       form{
         align-items: left;
         input{

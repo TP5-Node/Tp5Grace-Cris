@@ -25,43 +25,37 @@
             <a href="#" onclick="showModal()" id="showModal">Add Info</a>
             <input type="text" placeholder="Filter...." id="filter">
         </div>
-        <div class="tableData">
-            <ul class="titles"> 
-                <li>Name</li>
-                <li>Modality</li>
-                <li>Price</li>
-                <li>Email</li>
-                <li>Edit</li>
-                <li>Delete</li>
-            </ul>
-            <ul class="ulData">
-                <li>Ada</li>
-                <li>Presencial/Online</li>
-                <li>$80.000</li>
-                <li>contacto@adaitw.com.ar</li>
-                <li><a href="#"><i class="material-icons" title="Edit">&#xE254;</i></a></li>
-                <li><a href="#" id='deleteButton'><i class="material-icons" title="Delete">&#xE872;</i></a></li>
-                
-                
-            </ul>
+        <table class="tableData">
+            <thead class="tableTitles">
+                <th>Name</th>
+                <th>Modality</th>
+                <th>Price</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </thead>
+            <tbody id="tableContain" class="tableContain">
+            </tbody>
+        </table>
+           
+           
         </div>
     </div>
     <!-- MODAL -->
     <div id="backModal" class="backModal hide">
-        <div id="modal" class="modal" >
+        <div id="modal" class="modal">
             <div class="headMod">
                 <h2>Add  new resource</h2>
                 <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
             </div>
             <form action="">
                 <label for="input-name">Name</label>
-                <input type="text" id="input-name">
+                <input type="text" id="name">
                 <label for="input-email">Modality</label>
-                <input type="text" id="input-modality">
+                <input type="text" id="modality">
                 <label for="input-price">Price</label>
-                <input type="text" id="input-price">
+                <input type="text" id="price">
                 <label for="input-phone">Email</label>
-                <input type="text" id="input-email">
+                <input type="text" id="email">
             </form>
             <div class="close">
                 <a href="#" onclick="closeModal()">CANCEL</a>
@@ -70,8 +64,8 @@
         </div>
     </div>
     <!-- EDIT MODAL -->
-    <div class="backModal hide" id="editEmployeeModal">
-        <div id="editModal" class="modal" onclick="showModal()">
+    <div class="backModal hide" id="editCourseModal">
+        <div id="editModal" class="modal" >
             <div class="headMod">
                 <h2>Edite resource</h2>
                 <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
@@ -93,8 +87,8 @@
         </div>
     </div>
     <!-- DELETE ALERT -->
-    <div class="backModal hide" id="editEmployeeModal">
-        <div id="deleteModal" class="deleteModal" onclick="showModal()">
+    <div class="backModal hide" id="editCourseModal">
+        <div id="deleteModal" class="deleteModal" >
             <div class="headMod">
                 <h2>Delete resource</h2>
                 <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
