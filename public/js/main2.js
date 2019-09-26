@@ -174,7 +174,8 @@ let lastRequest;
 const handleSearch = () => {
 	let query = event.target.value;
 	if (query.length >= 3 || (event.keyCode === 13 && query !== lastRequest)) {
-        lastRequest = query.id;
+         
+      lastRequest = document.getElementById('query').value
     
         return fetch(`/api/resources/${query}`)
         .then((res) => res.json())
