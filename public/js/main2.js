@@ -15,6 +15,7 @@ const printCourses = (data) => {
     const list = document.getElementById('tableContain');
     list.innerHTML = '';
     data.forEach(e =>{
+        
         let tableRow = document.createElement('tr')
         let rowName = document.createElement('td')
         rowName.innerText = e.name
@@ -77,17 +78,20 @@ const showDeleteModal = () => {
 
 
 const createUser = () => {
-	event.preventDefault();
+    event.preventDefault();
+    const formId = document.getElementById('id');
     const formName = document.getElementById('name');
     const formModality = document.getElementById('modality');
     const formPrice = document.getElementById('price');
     const formEmail = document.getElementById('email');
 
 	const payload = {
+        
 		name: formName.value,
         modality: formModality.value,
         price: formPrice.value,
-        email: formEmail.value
+        email: formEmail.value,
+        
     }
 
 
@@ -170,11 +174,11 @@ let lastRequest;
 const handleSearch = () => {
 	let query = event.target.value;
 	if (query.length >= 3 || (event.keyCode === 13 && query !== lastRequest)) {
-        lastRequest = query;
-        
-        return fetch('/api/resources/')
+        lastRequest = query.id;
+    
+        return fetch(`/api/resources/${query}`)
         .then((res) => res.json())
-        .then ((res) =>console.log(res.resources));
+        .then ((res) => console.log(res.resources));
 	}
 };
 
