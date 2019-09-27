@@ -23,7 +23,7 @@
         </header>
         <div class="addData">
             <a href="#" onclick="showModal()" id="showModal">Add Info</a>
-            <input type="text" placeholder="Filter...." id="filter" onkeyup="handleSearch()">
+            <input id="filterInput" type="text" placeholder="Filter...." id="filter" onkeypress="enterKeyPress(event)">
         </div>
         <table class="tableData">
             <thead class="tableTitles">
@@ -59,45 +59,45 @@
             </form>
             <div class="close">
                 <a href="#" onclick="closeModal()">CANCEL</a>
-                <a href="#" onclick="createUser()">ADD</a>
+                <a href="#" onclick="postCourse()">ADD</a>
             </div>
         </div>
     </div>
     <!-- EDIT MODAL -->
-    <div class="backModal hide" id="editCourseModal">
+    <div  id="editCourseModal" class="backModal hide">
         <div id="editModal" class="modal" >
             <div class="headMod">
                 <h2>Edite resource</h2>
-                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
+                <a href="#" class="closeBtn" onclick="closeEditModal()">&times;</a>
             </div>
-            <form action="">
-                <label for="input-name">Name</label>
-                <input type="text" id="input-name">
+            <form action="#">
+                <label for="input-name" id>Name</label>
+                <input type="text" id="editName">
                 <label for="input-email">Modality</label>
-                <input type="text" id="input-modality">
+                <input type="text" id="editModality">
                 <label for="input-price">Price</label>
-                <input type="text" id="input-price">
-                <label for="input-phone">Email</label>
-                <input type="text" id="input-email">
+                <input type="text" id="editPrice">
+                <label for="input-email">Email</label>
+                <input type="text" id="editEmail">
             </form>
             <div class="close">
-                <a href="#" onclick="closeModal()">CANCEL</a>
+                <a href="#" onclick="closeEditModal()">CANCEL</a>
                 <a href="#" onclick="">ADD</a>
             </div>
         </div>
     </div>
     <!-- DELETE ALERT -->
-    <div class="backModal hide" id="editCourseModal">
+    <div class="backModal hide" id="deleteCourseModal">
         <div id="deleteModal" class="deleteModal" >
             <div class="headMod">
                 <h2>Delete resource</h2>
-                <a href="#" class="closeBtn" onclick="closeModal()">&times;</a>
+                <a href="#" class="closeBtn" onclick="closeDeleteModal()">&times;</a>
             </div>
             <h5>Are you sure you want to delete this record?</h5>
             <img src="../statics/images/eraser.jpg" alt="">
             <div class="close">
-                <a href="#" onclick="closeModal()">CANCEL</a>
-                <a href="#" onclick="">SURE</a>
+                <a href="#" onclick="closeDeleteModal()">CANCEL</a>
+                <a href="#" onclick="deleteCourse()">SURE</a>
             </div>
         </div>
     </div>

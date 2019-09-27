@@ -1,0 +1,280 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: 'Varela Round', sans-serif;;
+  vertical-align: baseline; 
+}
+
+//VARIABLES
+$mainFont: 'Josefin Sans', sans-serif;
+$backFont: 'Bree Serif', serif;
+
+$medium-break: 1055px;
+$small-break: 880px;
+$little-break: 500px;
+
+
+
+
+body{
+  // background-color: red;
+  background-image: url('../../statics/images/backnode2.jpg');
+  background-size: cover;
+  position: absolute;
+  .main{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left:auto;
+    margin-right: auto;
+    header{
+      h1{
+        margin: 30px;
+        font-family: $mainFont;
+        font-size: 130px;
+        @media(max-width: $medium-break){
+          font-size: 110px;
+        }
+        @media(max-width: $small-break){
+          font-size: 85px;
+        }
+        @media(max-width: $little-break){
+          font-size: 50px;
+        }
+      }
+    }
+    .addData{
+      width: 70vw;
+      margin: 20px 0;
+      line-height: 50px;
+      align-items: center;
+      a{
+        font-family: $backFont;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 10px 25px;
+        background-color: black;
+        color: white;
+        border-radius: 8px;
+        margin: 20px;
+      }
+      input{
+        font-family: $backFont;
+        padding: 8px;
+        float: right;
+        font-size: 15px;
+        margin-right: 50px; 
+        margin-top: 7px;
+      }
+    }
+  }
+  .tableData{
+    width: 80vw;
+    margin: 50px 100px;
+    font-family: $mainFont;
+    .tableTitles{
+      background-color: white;
+      border-bottom: black solid 1px;
+      align-items: left;
+      th{
+        padding: 10px;
+        font-weight: bolder;
+      }
+    } 
+    .tableContain{
+      background-color: lightblue;
+      td{
+        text-align: center;
+        padding: 8px;
+        font-weight: bold;
+        font-size: 15px;
+        a{
+          i{
+            color: black;
+            margin-right: 10px;
+          }
+        }
+        
+      }
+    }
+  }
+  .show {
+    display: block;
+  }
+  .hide {
+    display: none;
+  }
+  //MODAL
+  .backModal{
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    &.show {
+      display: block;
+    }
+    &.hide {
+      display: none;
+    }
+    .modal{
+      margin: 20px auto;
+      width: 300px;
+      padding: 15px 45px;
+      border-radius: 9px;
+      background-color: #B7CBF0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      //align-items: left;
+      z-index: 1;
+        .headMod{
+          h2{
+            font-family: $backFont;
+            font-size: 25px;
+            margin: 20px ;
+            float: left;
+            word-spacing: 5px;
+            }
+          .closeBtn{
+            position: absolute;
+            top: 0;
+            right: 14px;
+            font-size: 38px;
+            float: right;
+            text-decoration: none;
+            color: black;
+          }
+
+        }
+        form{
+          align-items: left;
+          
+          input{
+            color: #3c3c3c;
+            height: 30px;
+            display: block;
+            margin: 5px ;
+            padding: 5px 5px 5px 24px;
+            font-size: 16px;
+            //line-height: 5px;
+             
+          }
+          label{
+            font-family: $backFont;
+            font-size: 18px;
+            width: 85%;
+            display: block;
+            margin: 15px 0 15px 25px;
+          }
+          
+        }
+        .close{
+          a{
+            float: right;
+            font-family: $backFont;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 6px 20px;
+            background-color: black;
+            color: white;
+            border-radius: 8px;
+            margin: 15px;
+            &:hover{
+              background-color: #3c3c3c;
+              transition: all 0.3s;
+            }
+          } 
+        }
+      }
+    .deleteModal{
+      height: 500px;
+      margin: 30px auto;
+      width: 30vw;
+      border-radius: 9px;
+      background-color: #B7CBF0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      z-index: 1;
+      .headMod{
+        h2{
+          font-family: $backFont;
+          font-size: 30px;
+          margin: 20px 0 20px 20px;
+          float: left;
+          word-spacing: 5px;
+          }
+          .closeBtn{
+            position: absolute;
+            top: 0;
+            right: 14px;
+            font-size: 40px;
+            float: right;
+            text-decoration: none;
+            color: black;
+          }
+        }
+        h5{
+          font-family: $backFont;
+          font-size: 16px;
+          margin-left: 20px;
+        }
+        img{
+          width: 20vw;
+          height: 40vh;
+          justify-content: center;
+          margin: auto;
+          border-radius: 25px;
+        }
+      .close{
+        a{
+          float: right;
+          font-family: $backFont;
+          font-size: 20px;
+          text-decoration: none;
+          padding: 8px 20px;
+          background-color: black;
+          color: white;
+          border-radius: 8px;
+          margin: 20px;
+          &:hover{
+            background-color: #3c3c3c;
+            transition: all 0.3s;
+            
+          }
+        } 
+      }
+    }    
+  }
+}
+      
+    
+        
+
+
+  
+
+
+
+
+
+
