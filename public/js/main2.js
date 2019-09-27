@@ -108,7 +108,7 @@ const createUser = () => {
             console.log(res);
             formId.value = '';
             formName.value = '';
-            
+            initialize()
         })
         .catch((error) => {
             // acá van otras cositas
@@ -175,13 +175,19 @@ const handleSearch = () => {
 	let query = event.target.value;
 	if (query.length >= 3 || (event.keyCode === 13 && query !== lastRequest)) {
          
-      lastRequest = document.getElementById('query').value
+      lastRequest = query
+      
     
-        return fetch(`/api/resources/${query}`)
+        return fetch(`/api/resources`)
         .then((res) => res.json())
         .then ((res) => console.log(res.resources));
+        //filtrar los resultados y comparar con lastreq. imprimir la lista filtrada
 	}
 };
+
+//let found = resources.find( e => console.log(e.plan))
+
+
 
 
 

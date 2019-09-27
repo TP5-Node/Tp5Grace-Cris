@@ -13,7 +13,7 @@ const getCourse =  (req, res, next)=>{
 //post no funciona
 const postCourse = (req, res, next) =>{
     let data = req.body
-    console.log(data)
+    data.id = resources.length +1 
     resources.push(data);
     res.send(`Recibido con el id ${data.id}`);
     // } else{
