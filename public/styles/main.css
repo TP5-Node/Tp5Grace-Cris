@@ -51,7 +51,7 @@ body .main header h1 {
   }
 }
 body .main .addData {
-  width: 85vw;
+  width: 70vw;
   margin: 20px 0;
   line-height: 50px;
   align-items: center;
@@ -74,38 +74,40 @@ body .main .addData input {
   margin-right: 50px;
   margin-top: 7px;
 }
-body .main .tableData {
-  width: 100%;
-  margin: 50px;
+body .tableData {
+  width: 80vw;
+  margin: 50px 100px;
+  font-family: "Josefin Sans", sans-serif;
 }
-body .main .tableData .tableTitles {
+body .tableData .tableTitles {
   background-color: white;
   border-bottom: black solid 1px;
   align-items: left;
 }
-body .main .tableData .tableTitles th {
+body .tableData .tableTitles th {
   padding: 10px;
+  font-weight: bolder;
 }
-body .main .tableData .tableContain {
+body .tableData .tableContain {
   background-color: lightblue;
 }
-body .main .tableData .tableContain td {
-  margin-right: 10px;
+body .tableData .tableContain td {
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 15px;
 }
-body .main .tableData .tableContain td a i {
+body .tableData .tableContain td a i {
   color: black;
   margin-right: 10px;
 }
-
-.show {
+body .show {
   display: block;
 }
-
-.hide {
+body .hide {
   display: none;
 }
-
-.backModal {
+body .backModal {
   background: rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
@@ -114,16 +116,78 @@ body .main .tableData .tableContain td a i {
   width: 100vw;
   overflow: scroll;
 }
-.backModal.show {
+body .backModal.show {
   display: block;
 }
-.backModal.hide {
+body .backModal.hide {
   display: none;
 }
-.backModal .modal {
+body .backModal .modal {
+  margin: 20px auto;
+  width: 300px;
+  padding: 15px 45px;
+  border-radius: 9px;
+  background-color: #B7CBF0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+body .backModal .modal .headMod h2 {
+  font-family: "Bree Serif", serif;
+  font-size: 25px;
+  margin: 20px;
+  float: left;
+  word-spacing: 5px;
+}
+body .backModal .modal .headMod .closeBtn {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 38px;
+  float: right;
+  text-decoration: none;
+  color: black;
+}
+body .backModal .modal form {
+  align-items: left;
+}
+body .backModal .modal form input {
+  color: #3c3c3c;
+  height: 30px;
+  display: block;
+  margin: 5px;
+  padding: 5px 5px 5px 24px;
+  font-size: 16px;
+}
+body .backModal .modal form label {
+  font-family: "Bree Serif", serif;
+  font-size: 18px;
+  width: 85%;
+  display: block;
+  margin: 15px 0 15px 25px;
+}
+body .backModal .modal .close a {
+  float: right;
+  font-family: "Bree Serif", serif;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 6px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  margin: 15px;
+}
+body .backModal .modal .close a:hover {
+  background-color: #3c3c3c;
+  transition: all 0.3s;
+}
+body .backModal .deleteModal {
+  height: 500px;
   margin: 30px auto;
-  width: 28%;
-  height: 550px;
+  width: 30vw;
+  border-radius: 9px;
   background-color: #B7CBF0;
   position: relative;
   display: flex;
@@ -132,38 +196,35 @@ body .main .tableData .tableContain td a i {
   align-items: left;
   z-index: 1;
 }
-.backModal .modal .headMod h2 {
+body .backModal .deleteModal .headMod h2 {
   font-family: "Bree Serif", serif;
   font-size: 30px;
   margin: 20px 0 20px 20px;
   float: left;
   word-spacing: 5px;
 }
-.backModal .modal .headMod .closeBtn {
+body .backModal .deleteModal .headMod .closeBtn {
   position: absolute;
   top: 0;
   right: 14px;
-  font-size: 60px;
+  font-size: 40px;
   float: right;
+  text-decoration: none;
+  color: black;
 }
-.backModal .modal form {
-  align-items: left;
-}
-.backModal .modal form input {
-  width: 85%;
-  height: 30px;
-  display: block;
-  margin: 10px 15px;
-  padding-right: 20px;
-}
-.backModal .modal form label {
+body .backModal .deleteModal h5 {
   font-family: "Bree Serif", serif;
-  font-size: 18px;
-  width: 85%;
-  display: block;
-  margin: 15px 0 15px 25px;
+  font-size: 16px;
+  margin-left: 20px;
 }
-.backModal .modal .close a {
+body .backModal .deleteModal img {
+  width: 20vw;
+  height: 40vh;
+  justify-content: center;
+  margin: auto;
+  border-radius: 25px;
+}
+body .backModal .deleteModal .close a {
   float: right;
   font-family: "Bree Serif", serif;
   font-size: 20px;
@@ -174,56 +235,9 @@ body .main .tableData .tableContain td a i {
   border-radius: 8px;
   margin: 20px;
 }
-.backModal .deleteModal {
-  height: 500px;
-  margin: 30px auto;
-  width: 35%;
-  background-color: #B7CBF0;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  z-index: 1;
-}
-.backModal .deleteModal .headMod h2 {
-  font-family: "Bree Serif", serif;
-  font-size: 30px;
-  margin: 20px 0 20px 20px;
-  float: left;
-  word-spacing: 5px;
-}
-.backModal .deleteModal .headMod .closeBtn {
-  position: absolute;
-  top: 0;
-  right: 14px;
-  font-size: 25px;
-  float: right;
-  text-decoration: none;
-  color: black;
-}
-.backModal .deleteModal h5 {
-  font-family: "Bree Serif", serif;
-  font-size: 16px;
-  margin-left: 20px;
-}
-.backModal .deleteModal img {
-  width: 220px;
-  height: 250px;
-  justify-content: center;
-  margin: auto;
-  border-radius: 25px;
-}
-.backModal .deleteModal .close a {
-  float: right;
-  font-family: "Bree Serif", serif;
-  font-size: 35px;
-  text-decoration: none;
-  padding: 8px 20px;
-  background-color: black;
-  color: white;
-  border-radius: 8px;
-  margin: 20px;
+body .backModal .deleteModal .close a:hover {
+  background-color: #3c3c3c;
+  transition: all 0.3s;
 }
 
 /*# sourceMappingURL=main.css.map */
