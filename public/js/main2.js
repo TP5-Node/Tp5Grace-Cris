@@ -172,15 +172,16 @@ const closeModal = () =>{
 
 let lastRequest;
 const handleSearch = () => {
-	let query = event.target.value;
-	if (query.length >= 3 || (event.keyCode === 13 && query !== lastRequest)) {
+	let querys = event.target.value;
+	if (querys.length >= 3 || (event.keyCode === 13 && querys !== lastRequest)) {
          
-      lastRequest = query
-      
-    
-        return fetch(`/api/resources`)
+   querys.filter(query => (
+       Object.keys(query).find(prop => query[prop == 'abc'])
+   ))
+    lastRequest = querys
+        return fetch(`/api/resources/${querys}`)
         .then((res) => res.json())
-        .then ((res) => console.log(res.resources));
+        .then ((res) => printCourses(res.resources));
         //filtrar los resultados y comparar con lastreq. imprimir la lista filtrada
 	}
 };
