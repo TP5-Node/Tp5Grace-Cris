@@ -23,7 +23,7 @@
         </header>
         <div class="addData">
             <a href="#" onclick="showModal()" id="showModal">Add Info</a>
-            <input id="filterInput" type="text" placeholder="Filter...." id="filter" onkeypress="enterKeyPress(event)">
+            <input id="filterInput" type="text" placeholder="Filter...." id="filter" onkeyup="enterKeyPress(event)">
         </div>
         <table class="tableData">
             <thead class="tableTitles">
@@ -97,7 +97,7 @@
             <img src="../statics/images/eraser.jpg" alt="">
             <div class="close">
                 <a href="#" onclick="closeDeleteModal()">CANCEL</a>
-                <a href="#" onclick="deleteCourse()">SURE</a>
+                <a href="#" onclick="deleteCourse(id)">SURE</a>
             </div>
         </div>
     </div>

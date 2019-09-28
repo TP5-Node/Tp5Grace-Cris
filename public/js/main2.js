@@ -30,8 +30,8 @@ const printCourses = (data) => {
         tableRow.appendChild(rowPrice)
         tableRow.appendChild(rowEmail)
         let editBtn = document.createElement('td')
-        editBtn.appendChild(createEditBtn())
-        editBtn.appendChild(createDelBtn())
+        editBtn.appendChild(createEditBtn(e.id))
+        editBtn.appendChild(createDelBtn(e.id))
         tableRow.appendChild(editBtn)
         list.appendChild(tableRow)
     })
@@ -50,11 +50,12 @@ const createEditBtn = () =>{
     return btn
 } 
 
-const createDelBtn = () =>{
+const createDelBtn = (id) =>{
     let btn = document.createElement('a')
     btn.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`
     btn.href = "#"
     btn.onclick = () =>{
+        deleteCourse(id)
         showDeleteModal()
     } 
     return btn
@@ -79,7 +80,7 @@ const patchCourse = () =>{
 
 //FUNCION PARA DELETEAR
 const deleteCourse = (id) =>{
-    fetch('/api/resources/:id', {
+    fetch(`/api/resources/${id}`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
     })
@@ -206,6 +207,7 @@ const filterContent = () =>{
         const list = document.getElementById('tableContain');
         list.innerHTML = '';
         filterInput.forEach(elem =>{
+         
         let rowFilter = document.createElement('tr')
         let filterName = document.createElement('td')
         filterName.innerText = elem.name

@@ -50,7 +50,7 @@ const patchCourse = (req, res, next) => {
         resources.push(editCourse);
     } else{
         res.status(404).send('Curso no encontrado');
-    } 
+    } next()
 }
 
 const deleteCourse = (req, res, next) =>{
