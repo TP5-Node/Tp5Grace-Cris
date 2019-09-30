@@ -40,12 +40,12 @@ const printCourses = (data) => {
 };
 
 
-const createEditBtn = () =>{
+const createEditBtn = (id) =>{
     let btn = document.createElement('a')
     btn.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`
     btn.href = "#"
     btn.onclick = () =>{
-        patchCourse()
+        patchCourse(id)
     } 
     return btn
 } 
@@ -60,23 +60,41 @@ const createDelBtn = (id) =>{
     } 
     return btn
 }
+
 //FUNCION DE PATCH
-const patchCourse = () =>{
-    showEditModal()
-    let idRow = document.getElementById()
+const patchCourse = (id) =>{
     let editName = document.getElementById('editName').value
     let editModality = document.getElementById('editModality').value
     let editPrice = document.getElementById('editPrice').value
     let editEmail = document.getElementById('editEmail').value
-    let idEdit = document.getElementById('editId').innerText
-        
-    fetch('/api/employees', {
-        method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(employee)
-    })
-    
+    if(validData()){
+        let editedCourse = {
+            name: editName,
+            modality: editModality,
+            price: editPrice,
+            email: editEmail
+        }
+        fetch('/api/resources/:id', {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(editedCourse)
+        })
+        .then(res=>res.json())
+            .then(res=>{
+                console.log(res)
+                closeEditModal()
+                initialize()
+            })
+            cleanInputs('editName')  
+            cleanInputs('editModality')  
+            cleanInputs('editPrice')  
+            cleanInputs('editEmail')
+    }else{
+        console.log('TREMENDO ERROR ACA')
+    }
 }
+
+ 
 
 //FUNCION PARA DELETEAR
 const deleteCourse = (id) =>{

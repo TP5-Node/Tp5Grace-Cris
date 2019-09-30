@@ -42,7 +42,7 @@ const createEditBtn = (id) =>{
     btn.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`
     btn.href = "#"
     btn.onclick = () =>{
-        editCourseById(id)
+        showEditModal(id)
     } 
     return btn
 } 
@@ -63,8 +63,10 @@ const editCourseById = (id) =>{
     fetch(`/api/resources/${id}`)
         .then(res => res.json())
         .then(res => {
-            showEditModal()
-            infoModalEdit(res)
+           showEditModal()
+           printCourses(id) 
+           infoModalEdit(res)
+            
         })
 }
 
@@ -84,7 +86,8 @@ const dataEditModal = (editInfo, info )=>{
 
 
 //FUNCION DE PATCH
-const patchCourse = (id, editedCourse) =>{
+const patchCourse = (id) =>{
+    event.preventDefault();
     let editName = document.getElementById('editName').value
     let editModality = document.getElementById('editModality').value
     let editPrice = document.getElementById('editPrice').value
@@ -96,7 +99,7 @@ const patchCourse = (id, editedCourse) =>{
             price: editPrice,
             email: editEmail
         }
-        fetch('/api/resources/', {
+        fetch(`/api/resources/${id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editedCourse)
@@ -104,9 +107,10 @@ const patchCourse = (id, editedCourse) =>{
         .then(res=>res.json())
             .then(res=>{
                 console.log(res)
-                closeEditModal()
-                initialize()
+                
             })
+            closeEditModal()
+            initialize()
             cleanInputs('editName')  
             cleanInputs('editModality')  
             cleanInputs('editPrice')  
@@ -138,9 +142,11 @@ const showModal = () => {
     container.classList.toggle('hide')
     }
 
-const showEditModal = () => {
+const showEditModal = (id) => {
     let container = document.getElementById("editCourseModal")
     container.classList.toggle('hide')
+    let confEdit = document.getElementById("EditConf")
+    confEdit.onclick =()=> { patchCourse(id)}
 
     }
 

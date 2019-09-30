@@ -11,11 +11,11 @@ router.get('/', (req,res) =>{
 
 //API ROUTES//
 router.get('/api/resources', resources.getCourse);
-router.get('/api/resources/:id', resources.editCourseById);
+
 router.post('/api/resources', resources.postCourse);
 router.patch('/api/resources/:id', resources.patchCourse);
 router.delete('/api/resources/:id', resources.deleteCourse)
-
+//router.get('/api/resources/:id', resources.editCourseById);
 //NOT FOUNS HANDLER//
 router.use((req, res) =>{
     res.status(404).send('Ojo que te mandaste un mocazo');

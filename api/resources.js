@@ -39,13 +39,13 @@ const getCourseById = (req, res, next) =>{
 const patchCourse = (req, res, next) => {
     let data = req.body;
     let index = '';
-    let resCourses = resources.find((e, i) =>{
+    let resCourse = resources.find((e, i) =>{
         index = i;
         return e.id === req.params.id;
     }) 
 
-    if(resCourses){
-        let editCourse = { ...resCourses, ...data };
+    if(resCourse){
+        let editCourse = { ...resCourse, ...data };
         resources.splice(index, 1);
         resources.push(editCourse);
     } else{
