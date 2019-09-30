@@ -15,8 +15,9 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: 'Varela Round', sans-serif;
-  vertical-align: baseline; }
+  font-family: "Varela Round", sans-serif;
+  vertical-align: baseline;
+}
 
 body {
   background-image: url("../../statics/images/backnode2.jpg");
