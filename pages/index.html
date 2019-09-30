@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="statics/js/main2.js"></script>
+    <script src="statics/js/main.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Josefin+Sans&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -82,7 +82,7 @@
             </form>
             <div class="close">
                 <a href="#" onclick="closeEditModal()">CANCEL</a>
-                <a href="#" onclick="">ADD</a>
+                <a href="#" onclick="patchCourse()">ADD</a>
             </div>
         </div>
     </div>
@@ -97,7 +97,7 @@
             <img src="../statics/images/eraser.jpg" alt="">
             <div class="close">
                 <a href="#" onclick="closeDeleteModal()">CANCEL</a>
-                <a href="#" onclick="deleteCourse(id)">SURE</a>
+                <a href="#" id="deleteConf">SURE</a>
             </div>
         </div>
     </div>
