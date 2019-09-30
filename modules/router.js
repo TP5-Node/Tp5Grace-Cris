@@ -11,7 +11,7 @@ router.get('/', (req,res) =>{
 
 //API ROUTES//
 router.get('/api/resources', resources.getCourse);
-router.get('/api/resources/:id', resources.getCourseById);
+router.get('/api/resources/:id', resources.editCourseById);
 router.post('/api/resources', resources.postCourse);
 router.patch('/api/resources/:id', resources.patchCourse);
 router.delete('/api/resources/:id', resources.deleteCourse)

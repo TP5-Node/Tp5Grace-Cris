@@ -34,18 +34,14 @@ const printCourses = (data) => {
         tableRow.appendChild(editBtn)
         list.appendChild(tableRow)
     })
-
-    
 };
 
-
-const createEditBtn = () =>{
+const createEditBtn = (id) =>{
     let btn = document.createElement('a')
     btn.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`
     btn.href = "#"
     btn.onclick = () =>{
-        patchCourse()
-
+        editCourseById(id)
     } 
     return btn
 } 
@@ -56,27 +52,69 @@ const createDelBtn = (id) =>{
     btn.href = "#"
     btn.onclick = () =>{
         showDeleteModal(id)
-
     } 
     return btn
 }
+
+
+//FUNCION INICIO DE EDICION
+const editCourseById = (id) =>{
+    fetch(`/api/resources/${id}`)
+        .then(res => res.json())
+        .then(res => {
+            showEditModal()
+            infoModalEdit(res)
+        })
+}
+
+//FUNCION PARA LLENAR EL MODAL DE EDICION
+const infoModalEdit = (resource) =>{
+    dataEditModal('editName', resource.name)
+    dataEditModal('editModality', resource.modality)
+    dataEditModal('editPrice', resource.price)
+    dataEditModal('editEmail', resource.email)
+}
+
+//FUNCION GENERAL PARA LLENAR EL MODAL DE EDICION
+const dataEditModal = (editInfo, info )=>{
+    let editInput = document.getElementById(editInfo)
+    editInput.value = info
+}
+
+
 //FUNCION DE PATCH
-const patchCourse = () =>{
-    showEditModal()
-    let idRow = document.getElementById()
+const patchCourse = (id, editedCourse) =>{
     let editName = document.getElementById('editName').value
     let editModality = document.getElementById('editModality').value
     let editPrice = document.getElementById('editPrice').value
     let editEmail = document.getElementById('editEmail').value
-    let idEdit = document.getElementById('editId').innerText
-        
-    fetch('/api/employees', {
-        method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(employee)
-    })
-    
+    if(validData()){
+        let editedCourse = {
+            name: editName,
+            modality: editModality,
+            price: editPrice,
+            email: editEmail
+        }
+        fetch('/api/resources/', {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(editedCourse)
+        })
+        .then(res=>res.json())
+            .then(res=>{
+                console.log(res)
+                closeEditModal()
+                initialize()
+            })
+            cleanInputs('editName')  
+            cleanInputs('editModality')  
+            cleanInputs('editPrice')  
+            cleanInputs('editEmail')
+    }else{
+        console.log('TREMENDO ERROR ACA')
+    }
 }
+
 
 //FUNCION PARA DELETEAR
 const deleteCourse = (id) =>{
@@ -102,6 +140,7 @@ const showModal = () => {
 const showEditModal = () => {
     let container = document.getElementById("editCourseModal")
     container.classList.toggle('hide')
+
     }
 
 const showDeleteModal = (id) => {
@@ -110,11 +149,6 @@ const showDeleteModal = (id) => {
     let conf = document.getElementById("deleteConf")
     conf.onclick =()=> { deleteCourse(id)}
 }
-
-
-
-
-
 
 
 //FUNCIONES PARA CERRAR MODALES    
@@ -137,69 +171,95 @@ const closeDeleteModal = () =>{
 //FUNCION PARA HACER EL POST
 const postCourse = () => {
 	event.preventDefault();
-    const formName = document.getElementById('name');
-    const formModality = document.getElementById('modality');
-    const formPrice = document.getElementById('price');
-    const formEmail = document.getElementById('email');
-    const newCourse = {
-        name: formName.value,
-        modality: formModality.value,
-        price: formPrice.value,
-        email: formEmail.value
+    const name = document.getElementById('name');
+    const modality = document.getElementById('modality');
+    const price = document.getElementById('price');
+    const email = document.getElementById('email');
+    let newCourse = {
+        name: name.value,
+        modality: modality.value,
+        price: price.value,
+        email: email.value
     }
-    fetch('api/resources', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newCourse)
-    })
-    .then((res) => res.json())
-    .then((res) => {
-        console.log(res);
-        formId.value = '';
-        formName.value = '';
-        
-    })
-    initialize();
-    closeModal() 
-    cleanInputs('name')  
-    cleanInputs('modality')  
-    cleanInputs('price')  
-    cleanInputs('email')  
+    if(validData()){
+            fetch('api/resources', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newCourse)
+            })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+            })
+            initialize();
+            closeModal() 
+            cleanInputs('name')  
+            cleanInputs('modality')  
+            cleanInputs('price')  
+            cleanInputs('email') 
+    
+    }else{
+        console.log("ERROR")
+    }
+    
 }
+
+//FUNCION PARA VALIDAR
+const validData = (name, modality, price, email) =>{
+    if(validationName(name)){
+        if(validationMod(modality)){
+            if(validationPrice(price)){
+                if(validationEmail(email)){
+                    return true
+                }else{
+                    return "WRONG EMAIL"
+                }
+            }else{
+                return "WRONG PRICE"
+            }
+        }else{
+            return "WRONG MODALITY"
+        }
+    }else{
+        return "WRONG MAIL"
+    }
+}
+
+
+//VALIDACIONES INDIVIDUALES
+const validationName = () =>{    
+    if(name.lenght < 30 && name !== ""){
+    return true
+    }else{
+        return false
+    }
+}
+
+const validationMod = (modality) =>{    
+    if(modality.lenght < 30 && modality !== ""){
+    return true
+    }else{
+        return false
+    }
+}
+const validationPrice = (price) =>{    
+    const priceRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    return priceRegex.test(price)
+}
+
+const validationEmail = (email) =>{
+    const emailRegex = /\S+@\S+\.\S+/
+    return emailRegex.test(email)
+}
+
 
 //FUNCION PARA REINICIAR LOS INPUTS 
 const cleanInputs = (inputNod) =>{
     const cleanNod = document.getElementById(inputNod)
     cleanNod.value = "" 
-}      
-   
-    // const validationName = () =>{    
-    //     if(name.lenght < 30 && name !== ''){
-    //     return true
-    //     }else{
-    //         return false
-    //     }
-    // }
-    // const validationMod = (modality) =>{    
-    //     if(modality.lenght < 30 && modality !== ''){
-    //     return true
-    //     }else{
-    //         return false
-    //     }
-    // }
-    // const validationPrice = (price) =>{    
-    //     const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-    //     return re.test(price)
-    // }
-
-    // const validationEmail = (email) =>{
-    //     const re = /\S+@\S+\.\S+/
-    //     return re.test(email)
-    // }
-
-
+}
 
 
 //FUNCION PARA FILTER

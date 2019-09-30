@@ -25,8 +25,8 @@ const postCourse = (req, res, next) =>{
     next();    
 }
 
-const getCourseById = (req, res, next) =>{
-    const resEmplo = users.find((e) => e.id === req.params.id);
+const editCourseById = (req, res, next) =>{
+    const resEmplo = resources.find((e) => e.id === req.params.id);
     if(resEmplo){
         res.status(200).json(resEmplo);
     } else{
@@ -44,12 +44,13 @@ const patchCourse = (req, res, next) => {
     }) 
 
     if(resCourses){
-        let editCourse = { ...resCourses, ...data };
+        let editedCourse = { ...resCourses, ...data };
         resources.splice(index, 1);
-        resources.push(editCourse);
+        resources.push(editedCourse);
     } else{
         res.status(404).send('Curso no encontrado');
     } 
+    next;
 }
 
 const deleteCourse = (req, res, next) =>{
@@ -60,4 +61,4 @@ const deleteCourse = (req, res, next) =>{
     next()
 }
 
-module.exports = { getCourse, getCourseById, postCourse, patchCourse, deleteCourse };
+module.exports = { getCourse, editCourseById, postCourse, patchCourse, deleteCourse };
