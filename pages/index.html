@@ -23,7 +23,7 @@
         </header>
         <div class="addData">
             <a href="#" onclick="showModal()" id="showModal">Add Info</a>
-            <input id="filterInput" type="text" placeholder="Filter...." id="filter" onkeypress="enterKeyPress(event)">
+            <input id="filterInput" type="text" placeholder="Filter...." id="filter" onkeyup="enterKeyPress(event)">
         </div>
         <table class="tableData">
             <thead class="tableTitles">
@@ -82,7 +82,7 @@
             </form>
             <div class="close">
                 <a href="#" onclick="closeEditModal()">CANCEL</a>
-                <a href="#" onclick="patchCourse()">ADD</a>
+                <a href="#" id="EditConf">ADD</a>
             </div>
         </div>
     </div>

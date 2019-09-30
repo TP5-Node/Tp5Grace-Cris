@@ -22,7 +22,7 @@ const printCourses = (data) => {
         let rowModality = document.createElement('td')
         rowModality.innerText = e.modality
         let rowPrice = document.createElement('td')
-        rowPrice.innerText = `$ ${e.price}`
+        rowPrice.innerText = e.price
         let rowEmail = document.createElement('td')
         rowEmail.innerText = e.email 
         tableRow.appendChild(rowName)
@@ -35,14 +35,17 @@ const printCourses = (data) => {
         tableRow.appendChild(editBtn)
         list.appendChild(tableRow)
     })
+
+    
 };
+
 
 const createEditBtn = (id) =>{
     let btn = document.createElement('a')
     btn.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`
     btn.href = "#"
     btn.onclick = () =>{
-        showEditModal(id)
+        patchCourse(id)
     } 
     return btn
 } 
@@ -52,42 +55,14 @@ const createDelBtn = (id) =>{
     btn.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`
     btn.href = "#"
     btn.onclick = () =>{
-        showDeleteModal(id)
+        deleteCourse(id)
+        showDeleteModal()
     } 
     return btn
 }
 
-
-//FUNCION INICIO DE EDICION
-const editCourseById = (id) =>{
-    fetch(`/api/resources/${id}`)
-        .then(res => res.json())
-        .then(res => {
-           showEditModal()
-           printCourses(id) 
-           infoModalEdit(res)
-            
-        })
-}
-
-//FUNCION PARA LLENAR EL MODAL DE EDICION
-const infoModalEdit = (resource) =>{
-    dataEditModal('editName', resource.name)
-    dataEditModal('editModality', resource.modality)
-    dataEditModal('editPrice', resource.price)
-    dataEditModal('editEmail', resource.email)
-}
-
-//FUNCION GENERAL PARA LLENAR EL MODAL DE EDICION
-const dataEditModal = (editInfo, info )=>{
-    let editInput = document.getElementById(editInfo)
-    editInput.value = info
-}
-
-
 //FUNCION DE PATCH
 const patchCourse = (id) =>{
-    event.preventDefault();
     let editName = document.getElementById('editName').value
     let editModality = document.getElementById('editModality').value
     let editPrice = document.getElementById('editPrice').value
@@ -99,7 +74,7 @@ const patchCourse = (id) =>{
             price: editPrice,
             email: editEmail
         }
-        fetch(`/api/resources/${id}`, {
+        fetch('/api/resources/:id', {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editedCourse)
@@ -107,10 +82,9 @@ const patchCourse = (id) =>{
         .then(res=>res.json())
             .then(res=>{
                 console.log(res)
-                
+                closeEditModal()
+                initialize()
             })
-            closeEditModal()
-            initialize()
             cleanInputs('editName')  
             cleanInputs('editModality')  
             cleanInputs('editPrice')  
@@ -120,6 +94,7 @@ const patchCourse = (id) =>{
     }
 }
 
+ 
 
 //FUNCION PARA DELETEAR
 const deleteCourse = (id) =>{
@@ -142,20 +117,15 @@ const showModal = () => {
     container.classList.toggle('hide')
     }
 
-const showEditModal = (id) => {
+const showEditModal = () => {
     let container = document.getElementById("editCourseModal")
     container.classList.toggle('hide')
-    let confEdit = document.getElementById("EditConf")
-    confEdit.onclick =()=> { patchCourse(id)}
-
     }
 
-const showDeleteModal = (id) => {
+const showDeleteModal = () => {
     let container = document.getElementById("deleteCourseModal")
     container.classList.toggle('hide')
-    let conf = document.getElementById("deleteConf")
-    conf.onclick =()=> { deleteCourse(id)}
-}
+    }
 
 
 //FUNCIONES PARA CERRAR MODALES    
@@ -178,95 +148,70 @@ const closeDeleteModal = () =>{
 //FUNCION PARA HACER EL POST
 const postCourse = () => {
 	event.preventDefault();
-    const name = document.getElementById('name');
-    const modality = document.getElementById('modality');
-    const price = document.getElementById('price');
-    const email = document.getElementById('email');
-    let newCourse = {
-        name: name.value,
-        modality: modality.value,
-        price: price.value,
-        email: email.value
+    const formName = document.getElementById('name');
+    const formModality = document.getElementById('modality');
+    const formPrice = document.getElementById('price');
+    const formEmail = document.getElementById('email');
+    const newCourse = {
+        name: formName.value,
+        modality: formModality.value,
+        price: formPrice.value,
+        email: formEmail.value,
+        
     }
-    if(validData()){
-            fetch('api/resources', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newCourse)
-            })
-            .then((res) => res.json())
-            .then((res) => {
-                console.log(res);
-            })
-            initialize();
-            closeModal() 
-            cleanInputs('name')  
-            cleanInputs('modality')  
-            cleanInputs('price')  
-            cleanInputs('email') 
-    
-    }else{
-        console.log("ERROR")
-    }
-    
+    fetch('api/resources', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newCourse)
+    })
+    .then((res) => res.json())
+    .then((res) => {
+        console.log(res);
+        formId.value = '';
+        formName.value = '';
+        
+    })
+    initialize();
+    closeModal() 
+    cleanInputs('name')  
+    cleanInputs('modality')  
+    cleanInputs('price')  
+    cleanInputs('email')  
 }
-
-//FUNCION PARA VALIDAR
-const validData = (name, modality, price, email) =>{
-    if(validationName(name)){
-        if(validationMod(modality)){
-            if(validationPrice(price)){
-                if(validationEmail(email)){
-                    return true
-                }else{
-                    return "WRONG EMAIL"
-                }
-            }else{
-                return "WRONG PRICE"
-            }
-        }else{
-            return "WRONG MODALITY"
-        }
-    }else{
-        return "WRONG MAIL"
-    }
-}
-
-
-//VALIDACIONES INDIVIDUALES
-const validationName = () =>{    
-    if(name.lenght < 30 && name !== ""){
-    return true
-    }else{
-        return false
-    }
-}
-
-const validationMod = (modality) =>{    
-    if(modality.lenght < 30 && modality !== ""){
-    return true
-    }else{
-        return false
-    }
-}
-const validationPrice = (price) =>{    
-    const priceRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-    return priceRegex.test(price)
-}
-
-const validationEmail = (email) =>{
-    const emailRegex = /\S+@\S+\.\S+/
-    return emailRegex.test(email)
-}
-
 
 //FUNCION PARA REINICIAR LOS INPUTS 
 const cleanInputs = (inputNod) =>{
     const cleanNod = document.getElementById(inputNod)
     cleanNod.value = "" 
-}
+}      
+   
+    // const validationName = () =>{    
+    //     if(name.lenght < 30 && name !== ''){
+    //     return true
+    //     }else{
+    //         return false
+    //     }
+    // }
+    // const validationMod = (modality) =>{    
+    //     if(modality.lenght < 30 && modality !== ''){
+    //     return true
+    //     }else{
+    //         return false
+    //     }
+    // }
+    // const validationPrice = (price) =>{    
+    //     const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    //     return re.test(price)
+    // }
+
+    // const validationEmail = (email) =>{
+    //     const re = /\S+@\S+\.\S+/
+    //     return re.test(email)
+    // }
+
+
 
 
 //FUNCION PARA FILTER

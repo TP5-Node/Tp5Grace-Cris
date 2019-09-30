@@ -25,7 +25,8 @@ const postCourse = (req, res, next) =>{
     next();    
 }
 
-const editCourseById = (req, res, next) =>{
+//este funciona!
+const getCourseById = (req, res, next) =>{
     const resEmplo = resources.find((e) => e.id === req.params.id);
     if(resEmplo){
         res.status(200).json(resEmplo);
@@ -38,19 +39,18 @@ const editCourseById = (req, res, next) =>{
 const patchCourse = (req, res, next) => {
     let data = req.body;
     let index = '';
-    let resCourses = resources.find((e, i) =>{
+    let resCourse = resources.find((e, i) =>{
         index = i;
         return e.id === req.params.id;
     }) 
 
-    if(resCourses){
-        let editedCourse = { ...resCourses, ...data };
+    if(resCourse){
+        let editCourse = { ...resCourse, ...data };
         resources.splice(index, 1);
-        resources.push(editedCourse);
+        resources.push(editCourse);
     } else{
         res.status(404).send('Curso no encontrado');
-    } 
-    next;
+    } next()
 }
 
 const deleteCourse = (req, res, next) =>{
@@ -61,4 +61,4 @@ const deleteCourse = (req, res, next) =>{
     next()
 }
 
-module.exports = { getCourse, editCourseById, postCourse, patchCourse, deleteCourse };
+module.exports = { getCourse, getCourseById, postCourse, patchCourse, deleteCourse };
