@@ -42,7 +42,8 @@ const createEditBtn = (id) =>{
     btn.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`
     btn.href = "#"
     btn.onclick = () =>{
-        showEditModal(id)
+        editCourseById(id)
+        
     } 
     return btn
 } 
@@ -59,16 +60,18 @@ const createDelBtn = (id) =>{
 
 
 //FUNCION INICIO DE EDICION
+
 const editCourseById = (id) =>{
     fetch(`/api/resources/${id}`)
         .then(res => res.json())
         .then(res => {
-           showEditModal()
-           printCourses(id) 
+           showEditModal(id)
+           
            infoModalEdit(res)
             
         })
 }
+
 
 //FUNCION PARA LLENAR EL MODAL DE EDICION
 const infoModalEdit = (resource) =>{
