@@ -21,7 +21,7 @@ const printCourses = (data) => {
         let rowModality = document.createElement('td')
         rowModality.innerText = e.modality
         let rowPrice = document.createElement('td')
-        rowPrice.innerText = e.price
+        rowPrice.innerText = `$ ${e.price}`
         let rowEmail = document.createElement('td')
         rowEmail.innerText = e.email 
         tableRow.appendChild(rowName)
@@ -83,7 +83,7 @@ const dataEditModal = (editInfo, info )=>{
 
 
 //FUNCION DE PATCH
-const patchCourse = (id, editedCourse) =>{
+const patchCourse = () =>{
     let editName = document.getElementById('editName').value
     let editModality = document.getElementById('editModality').value
     let editPrice = document.getElementById('editPrice').value
@@ -95,7 +95,8 @@ const patchCourse = (id, editedCourse) =>{
             price: editPrice,
             email: editEmail
         }
-        fetch('/api/resources/', {
+        console.log(editedCourse)
+        fetch(`/api/resources/`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editedCourse)
@@ -103,9 +104,10 @@ const patchCourse = (id, editedCourse) =>{
         .then(res=>res.json())
             .then(res=>{
                 console.log(res)
-                closeEditModal()
-                initialize()
+                
             })
+            closeEditModal()
+            initialize()
             cleanInputs('editName')  
             cleanInputs('editModality')  
             cleanInputs('editPrice')  
@@ -114,6 +116,8 @@ const patchCourse = (id, editedCourse) =>{
         console.log('TREMENDO ERROR ACA')
     }
 }
+
+//id, editedCourse
 
 
 //FUNCION PARA DELETEAR

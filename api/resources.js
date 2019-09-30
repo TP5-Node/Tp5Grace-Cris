@@ -1,9 +1,9 @@
 const uniqid = require('uniqid')
 
 const resources = [
-    {id:'1', name: 'Acamica', modality: 'Online', price: '$95.00', email: 'cursos@acamica.com'},
-    {id:'2', name: 'Ada', modality: 'Presencial', price: '$80.000', email: 'contacto@ada.com'},
-    {id:'3', name: 'CourseIT', modality: 'Presencial', price: '$70.000', email: 'educacion@courseit.com'},
+    {id:'1', name: 'Acamica', modality: 'Online', price: '95.00', email: 'cursos@acamica.com'},
+    {id:'2', name: 'Ada', modality: 'Presencial', price: '80.000', email: 'contacto@ada.com'},
+    {id:'3', name: 'CourseIT', modality: 'Presencial', price: '70.000', email: 'educacion@courseit.com'},
 
 ];
 
