@@ -298,14 +298,14 @@ const filterContent = () =>{
         rowFilter.appendChild(filterPrice)
         rowFilter.appendChild(filterEmail) 
         let editBtn = document.createElement('td')
-        editBtn.appendChild(createEditBtn())
-        editBtn.appendChild(createDelBtn())
+        editBtn.appendChild(createEditBtn(elem.id))
+        editBtn.appendChild(createDelBtn(elem.id))
         rowFilter.appendChild(editBtn)   
         list.appendChild(rowFilter)
         })
     })
 }
-       
+ 
 const enterKeyPress = event =>{
     if( event.code === 'Enter'){ 
         filterContent()
