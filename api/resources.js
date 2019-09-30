@@ -61,4 +61,17 @@ const deleteCourse = (req, res, next) =>{
     next()
 }
 
-module.exports = { getCourse, getCourseById, postCourse, patchCourse, deleteCourse };
+const editCourseById = (req, res, next) =>{
+    const resEmplo = resources.find((e) => e.id === req.params.id);
+    if(resEmplo){
+        res.status(200).json(resEmplo);
+    } else{
+        res.status(404).send('Empleado no encontrado');
+    }
+    next();    
+};
+
+
+
+
+module.exports = { getCourse, getCourseById, postCourse, patchCourse, deleteCourse, editCourseById };
