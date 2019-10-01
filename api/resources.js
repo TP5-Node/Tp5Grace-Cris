@@ -27,9 +27,9 @@ const postCourse = (req, res, next) =>{
 
 //este funciona!
 const getCourseById = (req, res, next) =>{
-    const resEmplo = resources.find((e) => e.id === req.params.id);
-    if(resEmplo){
-        res.status(200).json(resEmplo);
+    const resCourse = resources.find((e) => e.id === req.params.id);
+    if(resCourse){
+        res.status(200).json(resCourse);
     } else{
         res.status(404).send('Empleado no encontrado');
     }
@@ -62,11 +62,11 @@ const deleteCourse = (req, res, next) =>{
 }
 
 const editCourseById = (req, res, next) =>{
-    const resEmplo = resources.find((e) => e.id === req.params.id);
-    if(resEmplo){
-        res.status(200).json(resEmplo);
+    const resCourse = resources.find((e) => e.id === req.params.id);
+    if(resCourse){
+        res.status(200).json(resCourse);
     } else{
-        res.status(404).send('Empleado no encontrado');
+        res.status(404).send('curso no encontrado');
     }
     next();    
 };

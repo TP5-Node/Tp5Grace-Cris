@@ -95,17 +95,19 @@ const patchCourse = (id) =>{
     let editModality = document.getElementById('editModality').value
     let editPrice = document.getElementById('editPrice').value
     let editEmail = document.getElementById('editEmail').value
-    if(validData()){
-        let editedCourse = {
+    let editedCourse = {
             name: editName,
             modality: editModality,
             price: editPrice,
             email: editEmail
         }
+        if(validData(editedCourse)){
+        
         fetch(`/api/resources/${id}`, {
             method: 'PATCH',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(editedCourse)
+            headers: {'Content-Type': 'application/json',
+            'Accept': 'application/json'},
+            body: JSON.stringify
         })
         .then(res=>res.json())
             .then(res=>{
@@ -128,7 +130,9 @@ const patchCourse = (id) =>{
 const deleteCourse = (id) =>{
     fetch(`/api/resources/${id}`, {
         method: 'DELETE',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+            'Content-Type': 'application/json'
+    }
     })
         .then(res=>res.json())
         .then(res=>{
@@ -157,7 +161,7 @@ const showDeleteModal = (id) => {
     let container = document.getElementById("deleteCourseModal")
     container.classList.toggle('hide')
     let conf = document.getElementById("deleteConf")
-    conf.onclick =()=> { deleteCourse(id)}
+    conf.onclick =()=> {deleteCourse(id)}
 }
 
 
@@ -190,14 +194,15 @@ const postCourse = () => {
         modality: modality.value,
         price: price.value,
         email: email.value
-    }
-    if(validData()){
+    };
+    if(validData(newCourse)){
             fetch('api/resources', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(newCourse)
+                body: JSON.stringify
             })
             .then((res) => res.json())
             .then((res) => {
@@ -233,13 +238,13 @@ const validData = (name, modality, price, email) =>{
             return "WRONG MODALITY"
         }
     }else{
-        return "WRONG MAIL"
+        return "WRONG NAME"
     }
 }
 
 
 //VALIDACIONES INDIVIDUALES
-const validationName = () =>{    
+const validationName = (name) =>{    
     if(name.lenght < 30 && name !== ""){
     return true
     }else{
@@ -298,8 +303,8 @@ const filterContent = () =>{
         rowFilter.appendChild(filterPrice)
         rowFilter.appendChild(filterEmail) 
         let editBtn = document.createElement('td')
-        editBtn.appendChild(createEditBtn())
-        editBtn.appendChild(createDelBtn())
+        editBtn.appendChild(createEditBtn(elem.id))
+        editBtn.appendChild(createDelBtn(elem.id))
         rowFilter.appendChild(editBtn)   
         list.appendChild(rowFilter)
         })
