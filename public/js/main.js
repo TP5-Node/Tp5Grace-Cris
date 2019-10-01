@@ -58,87 +58,6 @@ const createDelBtn = (id) =>{
     return btn
 }
 
-
-//FUNCION INICIO DE EDICION
-
-const editCourseById = (id) =>{
-    fetch(`/api/resources/${id}`)
-        .then(res => res.json())
-        .then(res => {
-           showEditModal(id)
-           
-           infoModalEdit(res)
-            
-        })
-}
-
-
-//FUNCION PARA LLENAR EL MODAL DE EDICION
-const infoModalEdit = (resource) =>{
-    dataEditModal('editName', resource.name)
-    dataEditModal('editModality', resource.modality)
-    dataEditModal('editPrice', resource.price)
-    dataEditModal('editEmail', resource.email)
-}
-
-//FUNCION GENERAL PARA LLENAR EL MODAL DE EDICION
-const dataEditModal = (editInfo, info )=>{
-    let editInput = document.getElementById(editInfo)
-    editInput.value = info
-}
-
-
-//FUNCION DE PATCH
-const patchCourse = (id) =>{
-    event.preventDefault();
-    let editName = document.getElementById('editName').value
-    let editModality = document.getElementById('editModality').value
-    let editPrice = document.getElementById('editPrice').value
-    let editEmail = document.getElementById('editEmail').value
-    if(validData()){
-        let editedCourse = {
-            name: editName,
-            modality: editModality,
-            price: editPrice,
-            email: editEmail
-        }
-        fetch(`/api/resources/${id}`, {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(editedCourse)
-        })
-        .then(res=>res.json())
-            .then(res=>{
-                console.log(res)
-                
-            })
-            closeEditModal()
-            initialize()
-            cleanInputs('editName')  
-            cleanInputs('editModality')  
-            cleanInputs('editPrice')  
-            cleanInputs('editEmail')
-    }else{
-        console.log('TREMENDO ERROR ACA')
-    }
-}
-
-
-//FUNCION PARA DELETEAR
-const deleteCourse = (id) =>{
-    fetch(`/api/resources/${id}`, {
-        method: 'DELETE',
-        headers: {'Content-Type': 'application/json'},
-    })
-        .then(res=>res.json())
-        .then(res=>{
-            console.log(res)
-            closeDeleteModal()
-            initialize()
-        })
-}
-
-
 //FUNCIONES PARA MOSTRAR MODALES
 const showModal = () => {
     let container = document.getElementById("backModal")
@@ -213,8 +132,8 @@ const postCourse = () => {
     }else{
         console.log("ERROR")
     }
-    
 }
+
 
 //FUNCION PARA VALIDAR
 const validData = (name, modality, price, email) =>{
@@ -311,3 +230,82 @@ const enterKeyPress = event =>{
         filterContent()
     }  
 } 
+
+
+//FUNCION INICIO DE EDICION
+const editCourseById = (id) =>{
+    fetch(`/api/resources/${id}`)
+        .then(res => res.json())
+        .then(res => {
+           showEditModal(id)
+           
+           infoModalEdit(res)
+            
+        })
+}
+
+
+//FUNCION PARA LLENAR EL MODAL DE EDICION
+const infoModalEdit = (resource) =>{
+    dataEditModal('editName', resource.name)
+    dataEditModal('editModality', resource.modality)
+    dataEditModal('editPrice', resource.price)
+    dataEditModal('editEmail', resource.email)
+}
+
+//FUNCION GENERAL PARA LLENAR EL MODAL DE EDICION
+const dataEditModal = (editInfo, info )=>{
+    let editInput = document.getElementById(editInfo)
+    editInput.value = info
+}
+
+
+//FUNCION DE PATCH
+const patchCourse = (id) =>{
+    event.preventDefault();
+    let editName = document.getElementById('editName').value
+    let editModality = document.getElementById('editModality').value
+    let editPrice = document.getElementById('editPrice').value
+    let editEmail = document.getElementById('editEmail').value
+    if(validData()){
+        let editedCourse = {
+            name: editName,
+            modality: editModality,
+            price: editPrice,
+            email: editEmail
+        }
+        fetch(`/api/resources/${id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(editedCourse)
+        })
+        .then(res=>res.json())
+            .then(res=>{
+                console.log(res)
+                
+            })
+            closeEditModal()
+            initialize()
+            cleanInputs('editName')  
+            cleanInputs('editModality')  
+            cleanInputs('editPrice')  
+            cleanInputs('editEmail')
+    }else{
+        console.log('TREMENDO ERROR ACA')
+    }
+}
+
+
+//FUNCION PARA DELETEAR
+const deleteCourse = (id) =>{
+    fetch(`/api/resources/${id}`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+    })
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+            closeDeleteModal()
+            initialize()
+        })
+}
