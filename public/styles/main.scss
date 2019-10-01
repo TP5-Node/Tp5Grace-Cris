@@ -167,6 +167,12 @@ body{
           align-items: left;
           
           input{
+            &:invalid{
+              border: 1px solid red;
+            }
+            &:valid{
+              border: 1px solid green;
+            }
             color: #3c3c3c;
             height: 30px;
             display: block;

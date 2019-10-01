@@ -132,6 +132,10 @@ body {
           margin: 5px;
           padding: 5px 5px 5px 24px;
           font-size: 16px; }
+          body .backModal .modal form input:invalid {
+            border: 1px solid red; }
+          body .backModal .modal form input:valid {
+            border: 1px solid green; }
         body .backModal .modal form label {
           font-family: "Bree Serif", serif;
           font-size: 18px;

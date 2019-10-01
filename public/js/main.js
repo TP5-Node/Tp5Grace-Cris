@@ -107,13 +107,17 @@ const patchCourse = (id) =>{
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
             'Accept': 'application/json'},
-            body: JSON.stringify
+            body: JSON.stringify(editedCourse)
         })
         .then(res=>res.json())
             .then(res=>{
                 console.log(res)
                 
             })
+
+            .catch((error) => {
+                // acá van otras cositas
+            });
             closeEditModal()
             initialize()
             cleanInputs('editName')  
@@ -202,24 +206,53 @@ const postCourse = () => {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify
+                body: JSON.stringify(newCourse)
             })
             .then((res) => res.json())
             .then((res) => {
                 console.log(res);
             })
+            .catch((error) => {
+                error
+
+
+            });
+            
             initialize();
             closeModal() 
             cleanInputs('name')  
             cleanInputs('modality')  
             cleanInputs('price')  
-            cleanInputs('email') 
+          cleanInputs('email') 
     
     }else{
         console.log("ERROR")
     }
     
 }
+
+//funcion validacion con mensaje de error
+
+function InvalidMsg(textbox) { 
+  
+    if (textbox.value === '') { 
+        textbox.setCustomValidity 
+              ('Entering an email-id is necessary!'); 
+    } else if (textbox.validity.typeMismatch) { 
+        textbox.setCustomValidity 
+              ('Please enter an email address which is valid!'); 
+    } else { 
+        textbox.setCustomValidity(''); 
+    } 
+
+    return true; 
+}
+ 
+    
+ 
+
+
+
 
 //FUNCION PARA VALIDAR
 const validData = (name, modality, price, email) =>{
