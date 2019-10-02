@@ -16,7 +16,7 @@ const getCourse =  (req, res, next)=>{
 const postCourse = (req, res, next) =>{
     let data = req.body;
     if(data.hasOwnProperty('name') && data.hasOwnProperty('modality') && data.hasOwnProperty('price') && data.hasOwnProperty('email')){
-    data.id = `${uniqid()}`
+    data.id = uniqid()
     resources.push(data);
     res.status(201).send(`Recibido con el id ${data.id}`);
     } else{
@@ -31,7 +31,7 @@ const getCourseById = (req, res, next) =>{
     if(resEmplo){
         res.status(200).json(resEmplo);
     } else{
-        res.status(404).send('Empleado no encontrado');
+        res.status(404).send('Curso no encontrado');
     }
     next();    
 };
@@ -48,8 +48,9 @@ const patchCourse = (req, res, next) => {
         let editCourse = { ...resCourse, ...data };
         resources.splice(index, 1);
         resources.push(editCourse);
+        res.status(200).json(resCourse);
     } else{
-        res.status(404).send('Curso no encontrado');
+        res.status(404).send('Curso modificado');
     } next()
 }
 

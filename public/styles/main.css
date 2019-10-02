@@ -124,8 +124,8 @@ body .backModal.hide {
 }
 body .backModal .modal {
   margin: 20px auto;
-  width: 300px;
-  padding: 15px 45px;
+  width: 23%;
+  padding: 15px 25px;
   border-radius: 9px;
   background-color: #B7CBF0;
   position: relative;
@@ -134,12 +134,42 @@ body .backModal .modal {
   justify-content: center;
   z-index: 1;
 }
-body .backModal .modal .headMod h2 {
+@media (max-width: 1055px) {
+  body .backModal .modal {
+    width: 25%;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .modal {
+    width: 35%;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .modal {
+    width: 40%;
+  }
+}
+body .backModal .modal .headMod .modalTitle {
   font-family: "Bree Serif", serif;
-  font-size: 25px;
+  font-size: 28px;
   margin: 20px;
   float: left;
   word-spacing: 5px;
+}
+@media (max-width: 1055px) {
+  body .backModal .modal .headMod .modalTitle {
+    font-size: 26px;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .modal .headMod .modalTitle {
+    font-size: 24px;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .modal .headMod .modalTitle {
+    font-size: 16x;
+  }
 }
 body .backModal .modal .headMod .closeBtn {
   position: absolute;
@@ -155,11 +185,29 @@ body .backModal .modal form {
 }
 body .backModal .modal form input {
   color: #3c3c3c;
-  height: 30px;
+  height: 20%;
   display: block;
   margin: 5px;
   padding: 5px 5px 5px 24px;
   font-size: 16px;
+}
+@media (max-width: 1055px) {
+  body .backModal .modal form input {
+    font-size: 14px;
+    padding: 5px 5px 5px 16px;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .modal form input {
+    font-size: 12px;
+    padding: 5px 5px 5px 10px;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .modal form input {
+    font-size: 10px;
+    padding: 5px;
+  }
 }
 body .backModal .modal form label {
   font-family: "Bree Serif", serif;
@@ -167,6 +215,24 @@ body .backModal .modal form label {
   width: 85%;
   display: block;
   margin: 15px 0 15px 25px;
+}
+@media (max-width: 1055px) {
+  body .backModal .modal form label {
+    font-size: 16px;
+    margin: 15px;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .modal form label {
+    font-size: 14px;
+    margin: 15px;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .modal form label {
+    font-size: 12px;
+    margin: 15px;
+  }
 }
 body .backModal .modal .close a {
   float: right;
@@ -177,31 +243,81 @@ body .backModal .modal .close a {
   background-color: black;
   color: white;
   border-radius: 8px;
-  margin: 15px;
+  margin: 10px;
 }
 body .backModal .modal .close a:hover {
   background-color: #3c3c3c;
   transition: all 0.3s;
 }
+@media (max-width: 1055px) {
+  body .backModal .modal .close a {
+    font-size: 18px;
+    padding: 6px 18px;
+    margin: 8px;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .modal .close a {
+    font-size: 16px;
+    padding: 4px 16px;
+    margin: 6px;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .modal .close a {
+    font-size: 14px;
+    margin: 4px;
+  }
+}
 body .backModal .deleteModal {
-  height: 500px;
   margin: 30px auto;
-  width: 30vw;
+  max-width: 28%;
   border-radius: 9px;
   background-color: #B7CBF0;
-  position: relative;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: left;
   z-index: 1;
+  padding: 20px;
 }
-body .backModal .deleteModal .headMod h2 {
+@media (max-width: 1055px) {
+  body .backModal .deleteModal {
+    width: 45%;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .deleteModal {
+    width: 50%;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .deleteModal {
+    width: 55%;
+  }
+}
+body .backModal .deleteModal .headMod .modalTitle {
   font-family: "Bree Serif", serif;
   font-size: 30px;
   margin: 20px 0 20px 20px;
   float: left;
   word-spacing: 5px;
+}
+@media (max-width: 1055px) {
+  body .backModal .deleteModal .headMod .modalTitle {
+    font-size: 22px;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .deleteModal .headMod .modalTitle {
+    font-size: 18px;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .deleteModal .headMod .modalTitle {
+    font-size: 14x;
+  }
 }
 body .backModal .deleteModal .headMod .closeBtn {
   position: absolute;
@@ -212,17 +328,65 @@ body .backModal .deleteModal .headMod .closeBtn {
   text-decoration: none;
   color: black;
 }
+@media (max-width: 1055px) {
+  body .backModal .deleteModal .headMod .closeBtn {
+    font-size: 35px;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .deleteModal .headMod .closeBtn {
+    font-size: 30px;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .deleteModal .headMod .closeBtn {
+    font-size: 25px;
+  }
+}
 body .backModal .deleteModal h5 {
   font-family: "Bree Serif", serif;
   font-size: 16px;
   margin-left: 20px;
 }
+@media (max-width: 1055px) {
+  body .backModal .deleteModal h5 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .deleteModal h5 {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .deleteModal h5 {
+    font-size: 10px;
+  }
+}
 body .backModal .deleteModal img {
-  width: 20vw;
-  height: 40vh;
+  width: 58%;
+  height: 15%;
   justify-content: center;
-  margin: auto;
+  margin: 20px auto;
   border-radius: 25px;
+}
+@media (max-width: 1055px) {
+  body .backModal .deleteModal img {
+    width: 80%;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .deleteModal img {
+    width: 80%;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .deleteModal img {
+    width: 80%;
+  }
+}
+body .backModal .deleteModal .close {
+  display: inline-block;
 }
 body .backModal .deleteModal .close a {
   float: right;
@@ -233,11 +397,30 @@ body .backModal .deleteModal .close a {
   background-color: black;
   color: white;
   border-radius: 8px;
-  margin: 20px;
+  margin: 10px;
 }
 body .backModal .deleteModal .close a:hover {
   background-color: #3c3c3c;
   transition: all 0.3s;
+}
+@media (max-width: 1055px) {
+  body .backModal .deleteModal .close a {
+    font-size: 18px;
+    padding: 6px 18px;
+    margin: 8px;
+  }
+}
+@media (max-width: 880px) {
+  body .backModal .deleteModal .close a {
+    font-size: 16px;
+    margin: 6px;
+  }
+}
+@media (max-width: 500px) {
+  body .backModal .deleteModal .close a {
+    font-size: 14px;
+    margin: 4px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
