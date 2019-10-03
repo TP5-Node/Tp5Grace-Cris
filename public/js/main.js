@@ -76,7 +76,7 @@ const showDeleteModal = (id) => {
     let container = document.getElementById("deleteCourseModal")
     container.classList.toggle('hide')
     let conf = document.getElementById("deleteConf")
-    conf.onclick =()=> { deleteCourse(id)}
+    conf.onclick =()=> {deleteCourse(id)}
 }
 
 
@@ -109,12 +109,13 @@ const postCourse = () => {
         modality: modality.value,
         price: price.value,
         email: email.value
-    }
-    if(validData()){
+    };
+    if(validData(newCourse)){
             fetch('api/resources', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify(newCourse)
             })
@@ -122,19 +123,41 @@ const postCourse = () => {
             .then((res) => {
                 console.log(res);
             })
+            .catch((error) => {
+                error
+
+
+            });
+            
             initialize();
             closeModal() 
             cleanInputs('name')  
             cleanInputs('modality')  
             cleanInputs('price')  
-            cleanInputs('email') 
+          cleanInputs('email') 
     
     }else{
         console.log("ERROR")
     }
 }
 
+//funcion validacion con mensaje de error
 
+function InvalidMsg(textbox) { 
+  
+    if (textbox.value === '') { 
+        textbox.setCustomValidity 
+              ('Entering an email-id is necessary!'); 
+    } else if (textbox.validity.typeMismatch) { 
+        textbox.setCustomValidity 
+              ('Please enter an email address which is valid!'); 
+    } else { 
+        textbox.setCustomValidity(''); 
+    } 
+
+    return true; 
+}
+ 
 //FUNCION PARA VALIDAR
 const validData = (name, modality, price, email) =>{
     if(validationName(name)){
@@ -152,13 +175,13 @@ const validData = (name, modality, price, email) =>{
             return "WRONG MODALITY"
         }
     }else{
-        return "WRONG MAIL"
+        return "WRONG NAME"
     }
 }
 
 
 //VALIDACIONES INDIVIDUALES
-const validationName = () =>{    
+const validationName = (name) =>{    
     if(name.lenght < 30 && name !== ""){
     return true
     }else{

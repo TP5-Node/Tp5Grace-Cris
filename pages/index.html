@@ -49,13 +49,13 @@
             </div>
             <form action="">
                 <label for="input-name">Name</label>
-                <input type="text" id="name">
+                <input type="text" id="name" required>
                 <label for="input-email">Modality</label>
-                <input type="text" id="modality">
+                <input type="text" id="modality" pattern="Online|Presencial|Online&Presencial" required="required">
                 <label for="input-price">Price</label>
-                <input type="text" id="price">
+                <input type="number" id="price" required>
                 <label for="input-phone">Email</label>
-                <input type="text" id="email">
+                <input type="email" id="email" required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);">
             </form>
             <div class="close">
                 <a href="#" onclick="closeModal()">CANCEL</a>
@@ -72,13 +72,13 @@
             </div>
             <form action="#">
                 <label for="input-name" id>Name</label>
-                <input type="text" id="editName">
+                <input type="text" id="editName" required>
                 <label for="input-email">Modality</label>
-                <input type="text" id="editModality">
+                <input type="text" id="editModality" pattern="online|presencial|Online&Presencial" required>
                 <label for="input-price">Price</label>
-                <input type="text" id="editPrice">
+                <input type="number" id="editPrice" required>
                 <label for="input-email">Email</label>
-                <input type="text" id="editEmail">
+                <input type="email" id="editEmail" required>
             </form>
             <div class="close">
                 <a href="#" onclick="closeEditModal()">CANCEL</a>
