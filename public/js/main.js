@@ -297,7 +297,7 @@ const patchCourse = (id) =>{
             price: editPrice,
             email: editEmail
         }
-        fetch(`/api/resources/${id}`, {
+        fetch(`/api/resources `, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editedCourse)
